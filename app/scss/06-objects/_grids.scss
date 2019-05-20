@@ -1,0 +1,124 @@
+/* GRID SETTINGS
+************************************************************************/
+
+$grids: (
+
+	/*
+	selector: (													/* Class name for this grid type.
+		gutterX:	15px,										/* Horizontal margin between grid units.
+		gutterY:	15px,										/* Vertical margin between grid units/rows.
+		respondX:	30px,										/* Optional value for horizontal margin between grid units at the global $respond breakpoint (defined in media.scss), only works when class .respondXY is used on grid a grid row element.
+		respondY:	30px,										/* Same as above but for vertical margin between grid units.
+		column:		12,											/* The number of columns used in this grid config. Use u-6-12 for a 50% width grid unit, u-4-12 for a third etc. Use m-12-12 to make that grid unit change width at the mobile breakpoint.
+		row:		row,										/* Class name for the grid rows in this grid config.
+		auto:		true,										/* Allow grid units to inherit a defined width based on the nth number of grid units in that row. So a row of 4 grid units without a defined unit class would inherit u-3-12, in this column config.
+		break-units: (											/* Define selector names and breakpoints. Eg "t: $tablet" - means a class of t-*-* selectors will be generated and will only become usable within the $tablet range (defined in media.scss).
+			m:		$respond,
+			t: 		$tablet,
+			tp:		$tablet $portrait,
+			d:		$desktop,
+		)
+	)
+	*/
+
+	grid: (								
+		gutterX:	em($font-size),					
+		gutterY:	em($font-size),					
+		column:		12,					
+		auto:		false,						
+		break-units: (						
+			m:		$respond,
+			t:		$tablet,
+		)
+	)	
+
+);
+
+/* ADAPT FUNCTION - for each break-unit
+************************************************************************/
+
+@mixin adapt($gutter-x, $name, $bp, $columns, $max-width) {
+	@media #{$bp} {			
+		@each $column in $columns {
+			$i: index($columns, $column);
+			@for $i from 1 through $column {
+				$w:($max-width/$column) * $i;	
+				$percentage:percentage($w/100);
+				&.#{$name}-#{$i}-#{$column} {
+					width: calc(#{$percentage} - #{$gutter-x});					
+				}
+			}
+		}
+	}
+}
+
+/* LOOP THROUGH GRIDS
+************************************************************************/
+
+@each $grid, $map in $grids {
+
+	.o-#{$grid} {
+
+		$gutter: map-get($map, gutter);
+		$gutterX: map-get($map, gutterX);
+		$gutterY: map-get($map, gutterY);
+		$respondX: map-get($map, respondX);
+		$respondY: map-get($map, respondY);			
+		$columns: map-get($map, column);
+		$break-units: map-get($map, break-units);		
+		overflow:hidden;
+
+		.o-row {
+
+			width:calc(100% + #{$gutterX});	
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom:-$gutterY;
+			& + .o-row {
+				margin-top:$gutterY;
+			}
+
+			> * {
+
+				margin:0 $gutterX $gutterY 0;
+
+				@if map-get($map, auto) {
+					@for $count from 1 through nth($columns, length($columns)) {
+						&:first-child:nth-last-child(#{$count}), 
+						&:first-child:nth-last-child(#{$count}) ~ * {
+							width: calc(#{100/$count}#{"%"} - #{$gutterX});
+						}
+					}
+				}
+
+				@each $column in $columns {
+					$i: index($columns, $column);
+					@for $i from 1 through $column {
+						$w:(100/$column) * $i;								
+						$percentage:percentage($w/100);
+						&.u-#{$i}-#{$column} {
+	   						width: calc(#{$percentage} - #{$gutterX});					
+						}
+					}
+				}
+
+				@if map-used($break-units) {
+					@each $class, $bp in $break-units {
+						@include adapt($gutterX, $class, $bp, $columns, 100);
+					}
+				}
+
+			}
+
+			@if $respondY {
+				> * {
+					@media #{$respond} {
+						margin:0 $respondX $respondY 0;
+					}
+				}
+			}
+
+		}
+	}
+	
+}

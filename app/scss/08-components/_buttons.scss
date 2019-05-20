@@ -1,0 +1,83 @@
+.c-button {
+
+	/* DEFAULT
+	************************************************************************/	
+
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;	
+	padding:1em;
+	text-transform: uppercase;
+	font-size:em(25px);
+	border:0;
+	background:grey;	
+	color:white;
+
+	@include hover {
+		box-shadow: inset 0px 0px 100px 200px rgba(0,0,0,0.15);
+		text-decoration: none;
+	}	
+
+	@media #{$respond} {
+		display: block;
+	}
+
+	@media #{$default} {
+		max-width:em(300px, 25px);
+		width:100%;		
+	}
+
+	/* VARIATIONS
+	************************************************************************/
+
+	&--slim {
+		padding:0.4em 1em;
+	}
+
+	&--border {
+		background:transparent;
+		padding:calc(1em - 2px);
+		border:2px solid grey;		
+		color:grey;
+		&.c-button--slim {
+			padding:0.4em 1em;
+		}				
+	}
+
+	/* COLOURS
+	************************************************************************/
+
+	@each $name, $hex in $colors {
+
+		&--#{$name} {
+			background-color:#{$hex};
+			color:set-contrast-color($hex);
+		}
+
+		&--border--#{$name} {
+			@extend .c-button--border;			
+			border:2px solid #{$hex};			
+			color:#{$hex};
+			&.c-button--slim {
+				padding:0.4em 1em;
+			}			
+		}
+
+	}
+
+}
+
+/* BUTTON GROUPS
+************************************************************************/
+
+.c-button-row {
+	display: flex;	
+	@media #{$respond} {
+		flex-direction: column;		
+	}
+}
+
+.c-button-column {
+	display: flex;
+	flex-direction: column;
+}

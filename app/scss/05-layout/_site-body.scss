@@ -1,0 +1,21 @@
+html, body {
+	height:100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	overflow-x:hidden;
+	.site-header,.site-footer {
+		flex:none;	
+	}
+	.site-main {
+		flex: 1 0 auto;
+		width:100%; 
+		position: relative;
+		transition: opacity $speed ease;
+		@media #{$ie} {
+			min-height:1px;
+		}		
+	}
+}

@@ -1,0 +1,6 @@
+.site-footer {
+	padding:spacer(sm);
+	@media #{$default} {
+		padding:spacer(md) spacer(xl);
+	}	
+}

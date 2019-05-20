@@ -1,0 +1,59 @@
+.site-header {
+
+	header {
+
+		padding:spacer(sm);
+		width: 100%;
+
+		@media #{$default} {
+
+			padding:spacer(md) spacer(xl);
+			transition:all $speed ease;	
+
+		}
+	}
+
+	nav {
+
+		padding:1em;
+		width: 100%;		
+		line-height: 1;
+
+		a {
+			text-transform: uppercase;
+			display: inline-block;
+			& + a {
+				margin-left:0.5em;
+				&::before {
+					content:"/";
+					margin-right:0.5em;
+				}
+			}
+		}
+
+		body.scroll-below-header & {
+
+			position:fixed;
+			top:0;
+			z-index: 1;
+			$lh: ($font-size * $zoom)*$line-height;
+			& + * {
+				margin-top:calc(3em);
+			}
+						
+		}		
+		
+	}
+
+	&--hero {
+
+		min-height:100vh;
+		display: flex;
+		flex-direction: column;
+		header, nav {
+			flex:none;
+		}
+
+	}
+
+}

@@ -1,0 +1,16 @@
+.o-flex {
+
+	display: flex;
+	> * {
+		flex:auto;
+	}
+
+	@media #{$respond} {
+		flex-direction: column;
+	}
+}
+
+.o-flex-column {
+	display: flex;
+	flex-direction: column;
+}

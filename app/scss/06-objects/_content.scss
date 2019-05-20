@@ -1,0 +1,8 @@
+.o-content {
+
+	> * + * {
+		margin-top:calc(1.2rem * #{$zoom});	
+		//margin-top:spacer();
+	}
+
+}

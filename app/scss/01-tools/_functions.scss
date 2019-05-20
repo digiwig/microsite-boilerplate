@@ -1,0 +1,79 @@
+/* Returns spacer value
+********************************************************************************/
+
+@function spacer($key: "xs") {
+    @return map-get($spacers, $key);
+}
+
+/* Returns width value
+********************************************************************************/
+
+@function width($key: "lg") {
+    @return map-get($widths, $key);
+}
+
+/* Returns hex from associated color name, from the $colors map/list
+********************************************************************************/
+
+@function color($color-name) {
+ 	@return map-get($colors, $color-name);
+}
+
+/* Returns a greyscale colour
+********************************************************************************/
+
+@function grey($percent) {
+	@return lighten(black, $percent);
+}
+
+/* Returns either black or white depending on lightness/darkness of passed arg
+********************************************************************************/
+
+@function set-contrast-color($color, $light:white, $dark:black) {
+	$color-brightness: round((red($color)*299)+(green($color)*587)+(blue($color)*114)/1000);
+	$light-color: round((red(#ffffff)*299)+(green(#ffffff)*587)+(blue(#ffffff)*114)/1000);
+	@if abs($color-brightness) < ($light-color/2){
+		@return $light;
+	} @else {
+		@return $dark;
+	}
+}
+
+/* Theme color monochromatic hex generator
+********************************************************************************/
+
+@function monochrome($color, $shade:false) {
+	@if($shade) {
+		@return lighten(saturate(adjust-hue($color, -17), 30.60), 47.45);		
+	} @else {
+		@return lighten(saturate(adjust-hue($color, -13), 15.60), 28.63);
+	}
+}
+
+
+/* Returns true/false depending whether list contains any true values.
+********************************************************************************/
+
+@function map-used($map) {
+	$true:false;
+	@each $name, $value in $map {
+		@if ($value) {
+			$true:true;
+		}
+	}
+	@return $true;
+}
+
+/* PX to EM
+********************************************************************************/
+
+@function em($pixels, $context: $font-size) {
+  @return #{$pixels/$context}em;
+}
+
+/* PX to REM
+********************************************************************************/
+
+@function rem($pixels, $context: $font-size) {
+  @return #{$pixels/$context}rem;
+}

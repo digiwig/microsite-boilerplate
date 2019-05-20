@@ -1,0 +1,26 @@
+p {
+
+	font-size:em(30px);
+	font-weight:300;
+
+	&.large {
+		font-size:em(48px);
+	}
+
+	&.small {
+		font-size:em(25px);
+	}
+
+	&.extra-small {
+		font-size:em(20px);
+		font-weight:400;
+	}
+
+	a {
+		text-decoration: underline;
+		@include hover {
+			opacity: 0.5;
+		}
+	}
+	
+}

@@ -1,0 +1,11 @@
+html {
+	font-size: $font-size;
+}
+
+body {
+  	font-weight: 300;	
+	font-size: percentage($zoom);
+	font-family: $body-font;
+	color:black;
+	line-height: $line-height;
+}

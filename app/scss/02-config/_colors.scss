@@ -1,0 +1,31 @@
+/* Raw hex color vars, accessible through color(name) funciton
+/* http://chir.ag/projects/name-that-color/
+************************************************************************/
+
+$colors: (
+	
+	/* Colours */
+	"red":			#ff0000,
+	"blue":			#000fff,
+	"yellow":		#fff000,
+
+
+	/* Greyscale */
+	"black":		#000000,
+	"medium-grey":	#999999,
+	"light-grey":	#eeeeee,
+	"white": 		#ffffff,
+
+);
+
+/* Semantic colour vars
+************************************************************************/
+
+$primary: color("red");
+$body-color: set-contrast-color($primary);
+$constrast-color: set-contrast-color($body-color);
+
+/* Real life black and white
+************************************************************************/
+$black: #000000;
+$white: #ffffff;

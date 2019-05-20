@@ -1,0 +1,36 @@
+/* HARDWARE SPECIFIC
+************************************************************/
+$mobile: 	"(max-width:767px)"; 												/* smartphone only */
+$device: 	"(max-width:1024px)";												/* smartphone - tablet  */
+$tablet: 	"(min-width:768px) and (max-width:1024px)";							/* tablet only  */
+$tabtop: 	"(min-width:768px)";												/* tablet - desktop  */											/* tablet-landscape - desktop  */
+$laptop:	"(min-width:1024px) and (max-width:1280px)";						/* 13" laptop only */
+$desktop: 	"(min-width:1024px)";												/* desktop only  */
+
+/* BROWSER SPECIFIC
+************************************************************/
+$retina: 	"(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"; 	/* iOS retina */
+$webkit: 	"(-webkit-min-device-pixel-ratio:0)"; 								/* chrome and safari 8 */
+$ie:		"all and (-ms-high-contrast:none), (-ms-high-contrast-active)"; 	/* ie9-11 */
+
+/* ORIENTATION SPECIFIC
+************************************************************/
+$portrait: 	"and (orientation: portrait)";
+$landscape: "and (orientation: landscape)";
+
+/* SCREEN SIZE SPECIFIC
+************************************************************/
+$screen-xs:	"(max-width:767px)";
+$screen-sm:	"(min-width:768px) and (max-width:1023px)";
+$screen-md:	"(min-width:1024px) and (max-width:1279px)";
+$screen-lg:	"(min-width:1280px)";
+
+// /* PAGE
+// ************************************************************/
+// $above-page:"(min-width:#{$page-width})";
+// $below-page:"(max-width:#{$page-width})";
+
+/* GLOBAL RESPONSIVE BREAK POINTS
+************************************************************/
+$respond:	$mobile;
+$default:	$tabtop;

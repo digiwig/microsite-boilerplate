@@ -1,0 +1,195 @@
+.c-form {
+	
+	width: 100%;
+	&__notification {
+		background-color:white;
+		padding:1em;		
+	}
+	> * + * {
+		margin-top: spacer(sm);
+	}
+
+    form {
+        > * + * {
+            margin-top: spacer(sm);
+        }
+    }
+
+    input,select,textarea,button {
+        font-family: 'HP Simplified';
+        width:100%;
+        &.error {
+            box-shadow:2px 2px 0px 0px rgba(red, 0.5);
+        }
+    }    
+	
+}
+
+input:invalid {    
+    box-shadow:2px 2px 0px 0px rgba(red, 0.5);
+}
+
+.c-field {
+
+	width:100%;
+	text-align: left;
+    & + .c-field {
+        margin-top:0.5em;
+    }
+
+    label {
+    	font-weight:400;
+    	font-size:em(20px);
+    	display: block;
+    	margin-bottom: 0.25em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    select,
+    textarea {
+
+    	display: block;
+    	width: 100%;
+    	font-size:em(20px);    	    	
+        resize:none;	
+        appearance:none;
+        border:0;
+        padding:8px;
+
+        // Unstyle the caret on `<select>`s in IE10+.
+        &::-ms-expand {
+            background-color: transparent;
+            border: 0;
+        }
+
+        // Placeholder
+        &::placeholder {
+            color: black;
+            text-transform: uppercase;
+            font-weight:700;
+            // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+            opacity: 1;
+        } 
+        
+        // Disabled and read-only inputs
+        //
+        // HTML5 says that controls under a fieldset > legend:first-child won't be
+        // disabled if the fieldset is disabled. Due to implementation difficulty, we
+        // don't honor that edge case; we style them as disabled anyway.
+        &:disabled,
+        &[readonly] {
+            background-color:color("light-grey");
+            color:color("medium-grey");
+            border-color:inherit;
+            &::placeholder {
+                color:inherit;
+            }
+            // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
+            opacity: 1;
+        }
+
+        &[type='submit'] {
+            
+            @media #{$default} {
+                width:auto;    
+            }            
+            
+        }       	
+    }
+
+    input[type="checkbox"] {
+        display: none;
+        &:checked {
+            & + label {
+                &::before {
+                    content:"\f14a";
+                    color:color("blue");
+                }
+            }
+        }
+        & + label {
+            font-family: $body-font;
+            display: flex;
+            align-items:center;
+            cursor: pointer;
+            @include hover {
+                opacity: 0.75;
+            }
+            &::before {
+                font-family:"Font Awesome 5 Free";
+                content:"\f0c8";
+                //font-weight:900;
+                color:white;
+                font-size:1rem;
+                margin-right:0.5em;
+            }
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        &.error {
+            & + label {
+                color:rgba(red, 0.75);
+            }
+        }
+    }
+
+    select {
+
+        color: black;
+        text-transform: uppercase;
+        font-weight:900;    
+
+        &:focus::-ms-value {
+    		color: #6c757d;
+    		background-color: #fff;
+        }
+
+        &:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+        }    
+
+        &[size],
+        &[multiple] {
+            height: auto;
+        }	
+
+    }
+
+    textarea {
+    	height:100px;
+    }
+
+}
+
+
+.c-field-row, .c-field-group {
+    @media #{$default} {
+        display: flex;
+        .c-field {            
+            & + .c-field {
+                margin:0 0 0 em(30px);
+            }
+        } 
+        &.c-field-row {
+            .c-field {
+                flex:1;
+            }
+        }        
+    }
+    & + .c-field-row, & + .c-field-group {
+        margin-top:em(30px);
+        @media #{$respond} {
+            margin-top:1rem;
+        }
+    } 
+    
+    &--center {
+        justify-content: center;
+    }   
+}

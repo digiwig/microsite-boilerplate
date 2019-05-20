@@ -1,0 +1,144 @@
+/* ANIMATION DELAY HELPERS
+************************************************************************/
+
+.delay1 {
+  animation-delay: $speed;
+}
+
+.delay2 {
+  animation-delay: $speed*1.25; 
+}
+
+.delay3 {
+  animation-delay: $speed*1.5;
+}
+
+.delay4 {
+  animation-delay: $speed*1.75;
+}
+
+/* BREAKPOINT ADAPT HELPERS
+************************************************************************/
+
+.respond {
+  display:none;
+  @media #{$respond} {
+    display: block;
+  }
+}
+
+.default {
+  display:none;
+  @media #{$default} {
+    display: block;
+  }
+}
+
+.mobile {
+  display:none;
+  @media #{$mobile} {
+    display: block;
+  }
+}
+
+.device {
+  display:none;
+  @media #{$device} {
+    display: block;
+  }
+}
+
+.tablet {
+  display:none;
+  @media #{$tablet} {
+    display: block;
+  }
+}
+
+.tabtop {
+  display:none;
+  @media #{$tabtop} {
+    display: block;
+  }
+}
+
+.desktop {
+  display:none;
+  @media #{$desktop} {
+    display: block;
+  }
+}
+
+/* FLEXBOX HELPERS
+************************************************************************/
+
+.align-start {
+  align-items:flex-start;
+}
+
+.align-center {
+  align-items:center;
+}
+
+.align-end {
+  align-items:flex-end;
+}
+
+.justify-start {
+  justify-content:flex-start; 
+}
+
+.justify-center {
+  justify-content:center; 
+}
+
+.justify-end {
+  justify-content:flex-end; 
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* TEXT ALIGNMENT HELPERS
+************************************************************************/
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/*  BACKGROUND AND COLOUR HELPERS (see config/colors.scss)
+************************************************************************/
+
+@each $name, $hex in $colors {
+  .background-#{$name} {
+    background-color:#{$hex};
+
+  }
+  .color-#{$name} {
+    color:#{$hex};
+  } 
+}
+
+/* Additional padding classes
+************************************************************************/
+@media #{$default} {
+  @each $modifier, $value in $spacers {  
+    .padding-#{$modifier} {
+      padding:$value;
+    }
+  }
+}
+@media #{$respond} {
+  [class*="padding-"] {
+    padding:spacer(sm);
+  }
+}

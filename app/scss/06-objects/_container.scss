@@ -1,0 +1,39 @@
+.o-container {
+
+	/* DEFAULT
+	************************************************************************/
+
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	max-width:width();
+
+	/* WIDTH VARIATIONS - see config/settings.scss
+	************************************************************************/
+
+	@each $name, $width in $widths {
+		&--#{$name} {
+			max-width:$width;
+		}
+	}
+
+	&--half {
+		width:50%;
+		max-width: none;
+	}
+
+	&--full {
+		max-width:none;
+	}
+
+	/* STACKING BEHAVIOUR
+	************************************************************************/
+
+	& + .o-container {
+		margin-top:spacer(xl);
+		@media #{$respond} {
+			margin-top: spacer(lg);
+		}
+	}
+
+}

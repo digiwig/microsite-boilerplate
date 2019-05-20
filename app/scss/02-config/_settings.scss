@@ -1,0 +1,44 @@
+
+/* MANDATORY BASICS
+************************************************************************/
+
+$font-size:			30px;						/* Base REM, for normal paragraphs */
+$speed:				0.5s;						/* Global default transition speed */
+$assets: 			"/assets"; 					/* Path to assets */
+$zoom:				0.67;						/* When the PSD is massive, scale content relatively */
+$line-height:		1.4;
+$body-font:			'Roboto Slab', serif;
+
+/* WIDTH AND SPACER HELPERS
+************************************************************************/
+
+$widths: (
+	xs:				em(768px),
+	sm:				em(1024px),
+	md:				em(1280px),
+	lg:				em(1410px),
+	xl:				em(1920px),
+);
+
+$spacers: (
+	xs:				em(30px),
+	sm:				em(40px),
+	md:				em(65px),
+	lg:				em(90px),
+	xl:				em(120px),
+);
+
+/* DEVELOPMENT TOOLS
+************************************************************************/
+
+$devmode: 			true;						/* View semi transparent bg on all elements */
+
+@if $devmode {
+	* {
+		background-color: rgba(white, 0.25) !important;
+		&:nth-child(even) {
+			background-color: rgba(grey, 0.75) !important;
+		}
+	}
+}					
+

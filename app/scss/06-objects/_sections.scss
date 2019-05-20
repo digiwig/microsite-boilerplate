@@ -1,0 +1,61 @@
+.o-section {
+
+	/* DEFAULT
+	************************************************************************/	
+
+	width:100%;
+	padding:spacer("xl");
+	background-repeat:no-repeat;
+	background-position:center;	
+	background-size:cover;
+
+	/* PADDING VARIATIONS - see config/settings (spacers)
+	************************************************************************/	
+
+	@each $modifier, $value in $spacers {
+		&--#{$modifier} {
+			padding:$value;
+		}
+	}
+
+	/* MOBILE BEHAVIOUR
+	************************************************************************/
+
+	@media #{$respond} {
+		padding:spacer(sm);			
+	}
+
+	/* PADDING HELPERS
+	************************************************************************/	
+
+	&--collapse {
+		padding:0;
+	}
+
+	&--collapse--x {
+		padding-left:0;
+		padding-right:0;
+	}
+
+	&--collapse--y {
+		padding-top:0;
+		padding-bottom:0;
+	}	
+
+	&--collapse--top {
+		padding-top:0;
+	}
+
+	&--collapse--right {
+		padding-right:0;
+	}
+
+	&--collapse--bottom {
+		padding-bottom:0;
+	}		
+
+	&--collapse--left {
+		padding-left:0;
+	}			
+
+}
