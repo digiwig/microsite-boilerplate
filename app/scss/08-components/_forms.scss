@@ -25,10 +25,6 @@
 	
 }
 
-input:invalid {    
-    box-shadow:2px 2px 0px 0px rgba(red, 0.5);
-}
-
 .c-field {
 
 	width:100%;
@@ -98,7 +94,7 @@ input:invalid {
             }            
             
         }       	
-    }
+    }  
 
     input[type="checkbox"] {
         display: none;
@@ -164,6 +160,10 @@ input:invalid {
     textarea {
     	height:100px;
     }
+
+    input:invalid {    
+        box-shadow:2px 2px 0px 0px rgba(red, 0.5);
+    }    
 
 }
 

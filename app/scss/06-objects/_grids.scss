@@ -74,6 +74,7 @@ $grids: (
 			display: flex;
 			flex-wrap: wrap;
 			margin-bottom:-$gutterY;
+			
 			& + .o-row {
 				margin-top:$gutterY;
 			}
@@ -111,10 +112,20 @@ $grids: (
 			}
 
 			@if $respondY {
-				> * {
-					@media #{$respond} {
-						margin:0 $respondX $respondY 0;
+
+				@media #{$respond} {
+					
+					width:calc(100% + #{$respondX});					
+					margin-bottom:-$respondY;		
+
+					& + .o-row {
+						margin-top:$respondY;	
 					}
+
+					> * {					
+						margin:0 $respondX $respondY 0;					
+					}
+
 				}
 			}
 

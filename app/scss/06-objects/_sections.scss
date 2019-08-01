@@ -16,6 +16,14 @@
 		&--#{$modifier} {
 			padding:$value;
 		}
+		&--#{$modifier}--x {
+			padding-left:$value;
+			padding-right:$value;
+		}
+		&--#{$modifier}--y {
+			padding-top:$value;
+			padding-bottom:$value;
+		}				
 	}
 
 	/* MOBILE BEHAVIOUR
