@@ -18,13 +18,20 @@
 	}
 
 	&--half {
-		width:50%;
+		@media #{$default} {
+			width:50%;	
+		}		
 		max-width: none;
 	}
 
 	&--full {
 		max-width:none;
 	}
+
+	&--auto {
+		width:auto;
+		max-width:none;
+	}	
 
 	/* STACKING BEHAVIOUR
 	************************************************************************/
