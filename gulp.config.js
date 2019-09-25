@@ -3,7 +3,7 @@ module.exports = function() {
     return {
         sass: {
             input: ['./app/scss/**/*.scss', './app/modules/**/*.scss'],
-            base: ['./app/scss/app.scss', './app/modules/_all.scss'],
+            base: ['./app/scss/app.scss'],
             output: './dist/css/'
         },
         js: {
@@ -14,7 +14,7 @@ module.exports = function() {
         options: {
             sass: {
                 errLogToConsole: true,
-                outputStyle: 'expanded'
+                outputStyle: 'compressed'
             },
             autoprefixer: {
                 remove: false,

@@ -1,14 +1,15 @@
-// task configurations
+"use strict";
+
 var config = require('./gulp.config')();
 
-// task package dependencies
-var gulp = require('gulp'),
-    scss = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify'),
-    include = require("gulp-include"),
-    concat = require('gulp-concat');
+
+const gulp = require('gulp'),
+      sass = require('gulp-sass'),
+      autoprefixer = require('gulp-autoprefixer'),
+      sourcemaps = require('gulp-sourcemaps'),
+      uglify = require('gulp-uglify'),
+      include = require("gulp-include"),
+      concat = require('gulp-concat');
 
 /**
  * SCSS -> CSS compilation
@@ -16,22 +17,22 @@ var gulp = require('gulp'),
  * compiles scss syntax to css
  * autoprefixes the content
  */
-gulp.task('scss', function () {
+function css() {
     return gulp
-        .src(config.sass.base)
-        .pipe(sourcemaps.init())
-        .pipe(scss(config.options.sass).on('error', scss.logError))
-        .pipe(autoprefixer(config.options.autoprefixer))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(config.sass.output));
-});
+    .src(config.sass.base)
+    .pipe(sourcemaps.init())
+    .pipe(sass(config.options.sass).on('error', sass.logError))
+    .pipe(autoprefixer(config.options.autoprefixer))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.sass.output));
+}
 
 /**
  * JS compilation
  *
  * compiles and uglifies js
  */
-gulp.task('js', function(){
+function scripts() {
     return gulp
         .src(config.js.base)
         .pipe(concat('app.js'))
@@ -45,7 +46,7 @@ gulp.task('js', function(){
         }))
         .pipe(uglify())
         .pipe(gulp.dest(config.js.output));
-});
+}
 
 /**
  * WATCH task - run 'gulp watch'
@@ -55,16 +56,19 @@ gulp.task('js', function(){
  *
  * watches input raw files for updates and auto runs the appropriate tasks
  */
-gulp.task('watch', ['js', 'scss'], function(){
-  gulp.watch(config.sass.input, ['scss']);
-  gulp.watch(config.js.input, ['js']);
-});
+function watchFiles() {
+    gulp.watch(config.sass.input, css);
+    gulp.watch(config.js.input, scripts);    
+}
 
+// define complex tasks
+const js = gulp.series(scripts);
+const build = gulp.series(css, scripts);
+const watch = gulp.parallel(watchFiles);
 
-/**
- * DEFAULT task - run 'gulp'
- *
- * @task scss
- * @task js
- */
-gulp.task('default', ['scss', 'js']);
+//export tasks
+exports.css = css;
+exports.js = js;
+exports.build = build;
+exports.watch = watch;
+exports.default = build;
