@@ -15,77 +15,92 @@
 	<?php include "./inc/site-header.php" ?>
 	<main class="site-main">
 		<section class="o-section">
-			<div class="o-container">
-				<div class="o-content">
-					<h1>Hello World</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<a class="c-button">Button</a>
-				</div>			
+			<div class="o-modules">
+				<div class="o-container">
+					<div class="o-content">
+						<h1>Hello World</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<a class="c-button">Button</a>
+					</div>			
+				</div>
 			</div>
 		</section>
 		<section class="o-section background-white">
-			<div class="o-container o-container--md">
-				<div class="o-content">
-					<h1>.o-container--md</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>			
+			<div class="o-modules">
+				<div class="o-container o-container--md">
+					<div class="o-content">
+						<h1>.o-container--md</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>			
+				</div>
+				<div class="o-container o-container--sm">
+					<div class="o-content">
+						<div class="o-grid">
+							<div class="o-row">
+								<div class="u-4-12 m-12-12">1</div>
+								<div class="u-4-12 m-12-12">2</div>
+								<div class="u-4-12 m-12-12">3</div>
+								<div class="u-4-12 m-12-12">4</div>
+								<div class="u-4-12 m-12-12">5</div>
+								<div class="u-4-12 m-12-12">6</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="o-container o-container--md">
+					<div class="o-content">
+						<h1>.o-container--md</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+				</div>
+				<div class="o-container o-container--half" style=" align-self:flex-end">
+					<div class="m-general-content ">
+						<div class="o-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="o-container o-container--sm">
-				<div class="o-content">
+		</section>
+		<section class="o-section background-medium-grey color-white">
+			<div class="o-modules">
+				<div class="o-container o-container--sm o-content text-center">
+					<h2>Small Title</h2>
 					<div class="o-grid">
 						<div class="o-row">
-							<div class="u-4-12 m-12-12">1</div>
-							<div class="u-4-12 m-12-12">2</div>
-							<div class="u-4-12 m-12-12">3</div>
-							<div class="u-4-12 m-12-12">4</div>
-							<div class="u-4-12 m-12-12">5</div>
-							<div class="u-4-12 m-12-12">6</div>								
-						</div>					
-					</div>					
+							<div class="u-4-12 m-12-12 o-content">
+								<h3>Title</h3>
+								<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
+								<a class="c-button">Button</a>
+							</div>
+							<div class="u-4-12 m-12-12 o-content">
+								<h3>Title</h3>
+								<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
+								<a class="c-button">Button</a>
+							</div>
+							<div class="u-4-12 m-12-12 o-content">
+								<h3>Title</h3>
+								<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
+								<a class="c-button">Button</a>
+							</div>
+						</div>
+					</div>	
 				</div>
 			</div>
-			<div class="o-container o-container--md">
-				<div class="o-content">
-					<h1>.o-container--md</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>			
-			</div>						
 		</section>
-		<section class="o-section background-medium-grey color-white">						
-			<div class="o-container o-container--sm o-content text-center">
-				<h2>Small Title</h2>
-				<div class="o-grid">
-					<div class="o-row">
-						<div class="u-4-12 m-12-12 o-content">
-							<h3>Title</h3>
-							<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
-							<a class="c-button">Button</a>							
-						</div>
-						<div class="u-4-12 m-12-12 o-content">
-							<h3>Title</h3>
-							<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
-							<a class="c-button">Button</a>							
-						</div>
-						<div class="u-4-12 m-12-12 o-content">
-							<h3>Title</h3>
-							<p>In culpa qui officia deserunt mollit anim id est laborum.</p>
-							<a class="c-button">Button</a>							
-						</div>						
-					</div>					
-				</div>	
+		<section class="o-section">
+			<div class="o-modules">
+				<div class="o-container o-container--xl">
+					<div class="o-content">
+						<h1>.o-container--xl</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<a class="c-button">Button</a>
+					</div>
+				</div>
 			</div>
 		</section>
-		<section class="o-section">						
-			<div class="o-container o-container--xl">
-				<div class="o-content">
-					<h1>.o-container--xl</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					<a class="c-button">Button</a>
-				</div>
-			</div>			
-		</section>		
 	</main>
 	<?php include "./inc/site-footer.php" ;?>	
 	<script type="text/javascript" src="/dist/js/app.js"></script>

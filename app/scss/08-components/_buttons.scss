@@ -63,6 +63,9 @@
 			}			
 		}
 
+		&.color-#{$name} {
+			color:#{$hex};
+		}
 	}
 
 }
@@ -80,4 +83,21 @@
 .c-button-column {
 	display: flex;
 	flex-direction: column;
+}
+/* PARAGRAPH BEHAVIOUR
+************************************************************************/
+p {
+	.c-button {
+		white-space: nowrap;
+		@media #{$respond} {
+			& + .c-button {
+				margin-top:1em;
+			}			
+		}
+		@media #{$default} {
+			& + .c-button {
+				margin-left:1em;
+			}			
+		}
+	}
 }

@@ -34,7 +34,7 @@ $spacers: (
 $devmode: 			true;						/* View semi transparent bg on all elements */
 
 @if $devmode {
-	* {
+	body * {
 		background-color: rgba(white, 0.25) !important;
 		&:nth-child(even) {
 			background-color: rgba(grey, 0.75) !important;

@@ -1,0 +1,17 @@
+.o-modules {
+	
+	width:100%;
+	display:flex;	
+	flex-direction: column;
+	justify-content:center;
+
+	> * {
+		align-self: center;
+	}
+
+	> .o-container {
+		margin-left:0;
+		margin-right:0;
+	}
+
+}

@@ -64,6 +64,33 @@
 
 	&--collapse--left {
 		padding-left:0;
-	}			
+	}
+
+	/* ACF VARIATIONS
+	************************************************************************/
+
+	&--text-light {
+		color:color("white");
+	}
+
+	&--text-dark {
+		color:color("black");
+	}
+			
+	&__overlay {
+		position: absolute;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		display: block;
+		content:"";
+		z-index:0;
+	}
+
+	> *:not(.o-section__overlay) {
+		position:relative;
+		//z-index: 10; //this causes a little ugly clunky jump
+	}
 
 }
