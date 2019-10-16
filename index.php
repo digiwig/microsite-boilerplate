@@ -9,11 +9,22 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css?ver=1" type="text/css" media="all" />  
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="/dist/css/app.css?t=<?=time("now");?>" type="text/css" media="all">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js?ver=1"></script>
+	
 </head>
 <body>
 	<?php include "./inc/site-header.php" ?>
 	<main class="site-main">
+	<section class="o-section">
+		<div class="o-modules">
+			<div class="o-container o-container--full">	
+				<div class="m-hero m-hero--full-height m-hero--overlay--gradient-right m-hero--bottom-right">
+					<div class="o-content">
+						<h1 class="h2 color-theme">Seize opportunities<br> to add revenue with<br> carrier-grade Wi-Fi</h1>
+					</div>						
+				</div>
+			</div>
+		</div>
+	</section>		
 		<section class="o-section">
 			<div class="o-modules">
 				<div class="o-container">
@@ -102,7 +113,8 @@
 			</div>
 		</section>
 	</main>
-	<?php include "./inc/site-footer.php" ;?>	
+	<?php include "./inc/site-footer.php" ;?>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js?ver=1"></script>
 	<script type="text/javascript" src="/dist/js/app.js"></script>
 </body>
 </html>

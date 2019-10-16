@@ -1,6 +1,167 @@
 .m-hero {
+
 	display: flex;
-	flex: 1 0 auto;
+
+	@media #{$default} {		
+		
+		/* HEIGHT VARIATIONS
+		****************************************************************************************************/
+		@media #{$ie} {
+			height:1px;	
+		}
+		&--min-height {
+			min-height:em(700px);
+		}
+		&--full-height {
+			min-height:calc(100vh - (#{spacer(xl)}*2) );
+		}
+
+	}
+
+	/* CONTENT EXCEPTIONS
+	****************************************************************************************************/	
+
+	.o-content {
+		p.large {
+			font-size:em(33px);
+		}
+		br {
+			@media #{$respond} {
+				display: none;
+			}
+		}
+	}
+
+	/* CONTENT POSITIONS
+	****************************************************************************************************/
+
+	align-items:center;
 	justify-content: center;
-	align-items: center;
+
+	&--top-left {
+		align-items:flex-start;
+		justify-content: flex-start;
+	}
+
+	&--top-center {
+		align-items:flex-start;
+		justify-content:center;
+	}
+
+	&--top-right {
+		align-items:flex-start;
+		justify-content: flex-end;
+	}
+
+	&--center-left {
+		align-items:center;
+		justify-content:flex-start ;
+	}
+
+	&--center-center {
+		align-items:center;
+		justify-content:center;
+	}
+
+	&--center-right {
+		align-items:center;
+		justify-content: flex-end;
+	}	
+
+	&--bottom-left {
+		align-items:flex-end;
+		justify-content: flex-start;
+	}
+
+	&--bottom-center {
+		align-items:flex-end;
+		justify-content: center;
+	}
+
+	&--bottom-right {
+		align-items:flex-end;
+		justify-content:flex-end;
+	}
+
+	/* CONTENT WIDTHS
+	****************************************************************************************************/
+
+	.o-content {
+		position: relative;
+		z-index: 1;
+		@media #{$default} {
+			width:auto;	
+		}		
+	}	
+
+	@each $name, $width in $widths {
+
+		&--#{$name} {
+			.o-content {
+				width:100%;
+				max-width:$width;
+			}			
+		}
+	}
+
+	&--half {
+		@media #{$default} {
+			.o-content {
+				width:50%;
+			}
+		}
+	}
+
+	&--full {
+		.o-content {
+			width:100%;
+		}
+	}
+
+	&--auto {
+		.o-content {
+			width:auto;
+		}
+	}
+
+	/* BACKGROUND GRADIENT OVERLAY
+	****************************************************************************************************/
+
+	&--overlay {
+
+		&::after {
+			content:"";
+			position:absolute;
+			top:0;
+			right:0;
+			bottom:0;
+			left:0;
+			background: rgba(black, 0.65);
+			display: block;	
+			z-index:0;
+		}	
+
+		&--gradient-right {
+			@extend .m-hero--overlay;
+			&::after {
+				background: linear-gradient(to right, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.8) 100%);
+				@media #{$screen-sm} {
+					background: linear-gradient(to right, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.8) 75%);
+				}
+				@media #{$respond} {
+					background: rgba(black, 0.65);
+				}				
+			}
+
+		}
+
+		&--gradient-left {
+			@extend .m-hero--overlay;
+			&::after {
+				background: linear-gradient(to right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);			
+			}
+		}
+
+	}
+
 }

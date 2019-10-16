@@ -1,9 +1,14 @@
 .site-header {
 
+	min-height:100vh;
+	display: flex;
+	flex-direction: column;	
+
 	header {
 
 		padding:spacer(sm);
 		width: 100%;
+		flex:none;
 
 		@media #{$default} {
 
@@ -14,10 +19,13 @@
 	}
 
 	nav {
-
-		padding:1em;
 		width: 100%;		
 		line-height: 1;
+		flex:none;
+		padding:1em;
+		@media #{$default} {
+			padding:1em spacer(xl);
+		}
 
 		a {
 			text-transform: uppercase;
@@ -36,7 +44,7 @@
 			position:fixed;
 			top:0;
 			z-index: 1;
-			$lh: ($font-size * $zoom)*$line-height;
+
 			& + * {
 				margin-top:calc(3em);
 			}
@@ -45,15 +53,11 @@
 		
 	}
 
-	&--hero {
-
-		min-height:100vh;
+	.o-header {
 		display: flex;
-		flex-direction: column;
-		header, nav {
-			flex:none;
-		}
-
+		flex: 1 0 auto;
+		justify-content: center;
+		align-items: center;
 	}
 
 }

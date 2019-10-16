@@ -45,7 +45,7 @@ $grids: (
 				$w:($max-width/$column) * $i;	
 				$percentage:percentage($w/100);
 				&.#{$name}-#{$i}-#{$column} {
-					width: calc(#{$percentage} - #{$gutter-x});					
+					width: calc(#{$percentage} - #{$gutter-x}) !important;					
 				}
 			}
 		}
@@ -73,7 +73,7 @@ $grids: (
 			width:calc(100% + #{$gutterX});	
 			display: flex;
 			flex-wrap: wrap;
-			margin-bottom:-$gutterY;
+			margin-bottom:-#{$gutterY};
 			
 			& + .o-row {
 				margin-top:$gutterY;
@@ -98,7 +98,7 @@ $grids: (
 						$w:(100/$column) * $i;								
 						$percentage:percentage($w/100);
 						&.u-#{$i}-#{$column} {
-	   						width: calc(#{$percentage} - #{$gutterX});					
+	   						width: calc(#{$percentage} - #{$gutterX}) !important;					
 						}
 					}
 				}

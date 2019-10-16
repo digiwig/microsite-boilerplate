@@ -65,7 +65,7 @@ var SITE = SITE || {},
     }
 
     SITE.uncheck = function(element) {
-        element.prop('checked', false); 
+        $(element).prop('checked', false); 
     }
 
     SITE.fastClick = function() {
@@ -136,8 +136,10 @@ var SITE = SITE || {},
             lastScrollTop = distance;
 
         }
+
+        squash();
         
-        $(document).on("scroll ready", function() {
+        $(document).on("scroll", function() {
             squash();
         });  
         
