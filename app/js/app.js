@@ -1,11 +1,12 @@
 // =require fastclick/lib/fastclick.js
+// =require jquery/dist/jquery.min.js
 // =require jquery-inview/jquery.inview.min.js
 
 var SITE = SITE || {},
     supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
 ( function( $ ) {
-    
+
     'use strict';
 
     /* COOKIES
@@ -30,7 +31,7 @@ var SITE = SITE || {},
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
-    };  
+    };
 
     /* MICROSOFT SUCKS
     ************************************************************************/
@@ -58,14 +59,14 @@ var SITE = SITE || {},
         if ($(element).length > 0) {
             return true;
         }
-    };  
+    };
 
     SITE.check = function(element) {
-        $(element).prop('checked', true);   
+        $(element).prop('checked', true);
     }
 
     SITE.uncheck = function(element) {
-        $(element).prop('checked', false); 
+        $(element).prop('checked', false);
     }
 
     SITE.fastClick = function() {
@@ -77,7 +78,7 @@ var SITE = SITE || {},
     }
 
     /* HEADER/NAV/SCROLL/EVENT/MISC
-    ************************************************************************/   
+    ************************************************************************/
 
     SITE.bump = function() {
 
@@ -93,13 +94,13 @@ var SITE = SITE || {},
         var squash = function() {
 
             var distance = window.pageYOffset || document.documentElement.scrollTop,
-                condition = (onUp) 
-                    ? (distance > lastScrollTop & distance > 0) 
+                condition = (onUp)
+                    ? (distance > lastScrollTop & distance > 0)
                     : distance > 0;
 
 
             /* TOP
-            ************************************************************************/                          
+            ************************************************************************/
 
             distance > 0
                 ? body.removeClass("scroll-top")
@@ -110,24 +111,24 @@ var SITE = SITE || {},
 
             distance >= ((bottom - 1) - fold)
                 ? body.addClass("scroll-bottom")
-                : body.removeClass("scroll-bottom");                 
+                : body.removeClass("scroll-bottom");
 
             /* UP/DOWN
-            ************************************************************************/            
+            ************************************************************************/
 
             condition
                 ? body.addClass("scroll-down").removeClass('scroll-up')
                 : body.removeClass("scroll-down").addClass('scroll-up');
 
             /* BELOW THE HEADER
-            ************************************************************************/ 
+            ************************************************************************/
 
             distance > header
                 ? body.addClass("scroll-below-header")
-                : body.removeClass("scroll-below-header");                       
+                : body.removeClass("scroll-below-header");
 
             /* BELOW THE FOLD
-            ************************************************************************/ 
+            ************************************************************************/
 
             distance >= fold
                 ? body.addClass("scroll-below-fold")
@@ -138,29 +139,44 @@ var SITE = SITE || {},
         }
 
         squash();
-        
+
         $(document).on("scroll", function() {
             squash();
-        });  
-        
-        $(window).on("resize load",function(){ 
+        });
+
+        $(window).on("resize load",function(){
             squash();
-        });        
+        });
 
-    }     
+    }
 
-    /* SCROLL TRANSITIONS (apply animation when element in view) 
+
+    /* SMOOTH SCROLLING
+    ****************************************************************************************************/
+    SITE.smoothScrolling = function() {
+
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+        });
+
+    }
+
+    /* SCROLL TRANSITIONS (apply animation when element in view)
     /* (https://github.com/protonet/jquery.inview)
     ************************************************************************/
 
     SITE.scrollTransitions = function() {
-        
+
         $('.animate').on('inview', function(event, isInView) {
             if (isInView) {
                 $(this).addClass($(this).data("animation")).addClass("animated").addClass("inview");
             }
         });
-        
+
     }
 
     /* INITIALISATION
@@ -169,10 +185,11 @@ var SITE = SITE || {},
     SITE.init = function() {
 
         SITE.fastClick();
-        SITE.scrollTransitions();
         SITE.bump();
-              
-    };      
+        SITE.smoothScrolling();
+        SITE.scrollTransitions();
+
+    };
 
 } )( jQuery );
 

@@ -5,26 +5,25 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="dns-prefetch" href="//code.jquery.com">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css?ver=1" type="text/css" media="all" />  
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css?ver=1" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="/dist/css/app.css?t=<?=time("now");?>" type="text/css" media="all">
-	
+
 </head>
 <body>
 	<?php include "./inc/site-header.php" ?>
 	<main class="site-main">
 	<section class="o-section">
 		<div class="o-modules">
-			<div class="o-container o-container--full">	
+			<div class="o-container o-container--full">
 				<div class="m-hero m-hero--full-height m-hero--overlay--gradient-right m-hero--bottom-right">
 					<div class="o-content">
 						<h1 class="h2 color-theme">Seize opportunities<br> to add revenue with<br> carrier-grade Wi-Fi</h1>
-					</div>						
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>		
+	</section>
 		<section class="o-section">
 			<div class="o-modules">
 				<div class="o-container">
@@ -33,7 +32,7 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						<a class="c-button">Button</a>
-					</div>			
+					</div>
 				</div>
 			</div>
 		</section>
@@ -43,13 +42,13 @@
 					<div class="o-content">
 						<h1>.o-container--md</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					</div>			
+					</div>
 				</div>
 				<div class="o-container o-container--sm">
 					<div class="o-content">
 						<div class="o-grid">
 							<div class="o-row">
-								<div class="u-4-12 m-12-12">1</div>
+								<div class="u-4-12 m-12-12 padding-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
 								<div class="u-4-12 m-12-12">2</div>
 								<div class="u-4-12 m-12-12">3</div>
 								<div class="u-4-12 m-12-12">4</div>
@@ -96,7 +95,7 @@
 								<a class="c-button">Button</a>
 							</div>
 						</div>
-					</div>	
+					</div>
 				</div>
 			</div>
 		</section>
@@ -114,7 +113,6 @@
 		</section>
 	</main>
 	<?php include "./inc/site-footer.php" ;?>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js?ver=1"></script>
 	<script type="text/javascript" src="/dist/js/app.js"></script>
 </body>
 </html>

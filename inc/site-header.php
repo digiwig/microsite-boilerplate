@@ -11,7 +11,7 @@
 		</div>
 	</nav>
 	<div class="o-section o-header">
-		
+
 			<div class="o-container">
 				<div class="o-content text-center">
 					<h1>Header Title Goes Here</h1>
@@ -19,6 +19,6 @@
 					<p><a href="#" class="c-button c-button--black">Button</a>
 				</div>
 			</div>
-		
-	</div>	
+
+	</div>
 </div>
