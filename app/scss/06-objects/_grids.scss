@@ -21,16 +21,20 @@ $grids: (
 	)
 	*/
 
-	grid: (								
-		gutterX:	em($font-size),					
-		gutterY:	em($font-size),					
-		column:		12,					
-		auto:		false,						
-		break-units: (						
+	grid: (
+		gutterX:	2vw,
+		gutterY:	2vw,
+		respondX:	spacer(),
+		respondY:	spacer(),
+		column:		12,
+		auto:		true,
+		break-units: (
 			m:		$respond,
 			t:		$tablet,
+			tp:		$tablet $portrait,
+			tl:		$tablet $landscape,
 		)
-	)	
+	)
 
 );
 
@@ -38,14 +42,20 @@ $grids: (
 ************************************************************************/
 
 @mixin adapt($gutter-x, $name, $bp, $columns, $max-width) {
-	@media #{$bp} {			
+	@media #{$bp} {
 		@each $column in $columns {
 			$i: index($columns, $column);
 			@for $i from 1 through $column {
-				$w:($max-width/$column) * $i;	
+				$w:($max-width/$column) * $i;
 				$percentage:percentage($w/100);
 				&.#{$name}-#{$i}-#{$column} {
-					width: calc(#{$percentage} - #{$gutter-x}) !important;					
+					width: calc(#{$percentage} - #{$gutter-x}) !important;
+				}
+				&.#{$name}-push-#{$i} {
+					margin-right:calc(#{$gutter-x} + #{$percentage}) !important;
+				}
+				&.#{$name}-pull-#{$i} {
+					margin-left:$percentage !important;
 				}
 			}
 		}
@@ -63,18 +73,18 @@ $grids: (
 		$gutterX: map-get($map, gutterX);
 		$gutterY: map-get($map, gutterY);
 		$respondX: map-get($map, respondX);
-		$respondY: map-get($map, respondY);			
+		$respondY: map-get($map, respondY);
 		$columns: map-get($map, column);
-		$break-units: map-get($map, break-units);		
+		$break-units: map-get($map, break-units);
 		overflow:hidden;
 
 		.o-row {
 
-			width:calc(100% + #{$gutterX});	
+			width:calc(100% + #{$gutterX});
 			display: flex;
 			flex-wrap: wrap;
 			margin-bottom:-#{$gutterY};
-			
+
 			& + .o-row {
 				margin-top:$gutterY;
 			}
@@ -85,7 +95,7 @@ $grids: (
 
 				@if map-get($map, auto) {
 					@for $count from 1 through nth($columns, length($columns)) {
-						&:first-child:nth-last-child(#{$count}), 
+						&:first-child:nth-last-child(#{$count}),
 						&:first-child:nth-last-child(#{$count}) ~ * {
 							width: calc(#{100/$count}#{"%"} - #{$gutterX});
 						}
@@ -95,10 +105,24 @@ $grids: (
 				@each $column in $columns {
 					$i: index($columns, $column);
 					@for $i from 1 through $column {
-						$w:(100/$column) * $i;								
+						$w:(100/$column) * $i;
 						$percentage:percentage($w/100);
 						&.u-#{$i}-#{$column} {
-	   						width: calc(#{$percentage} - #{$gutterX}) !important;					
+	   						width: calc(#{$percentage} - #{$gutterX}) !important;
+						}
+						@if map-get($map, push) {
+							&.u-push-#{$i} {
+								@media #{$screen-lg} {
+									margin-right:calc(#{$gutterX} + #{$percentage});
+								}
+							}
+						}
+						@if map-get($map, pull) {
+							&.u-pull-#{$i} {
+								@media #{$screen-lg} {
+									margin-left:#{$percentage};
+								}
+							}
 						}
 					}
 				}
@@ -114,19 +138,17 @@ $grids: (
 			@if $respondY {
 
 				@media #{$respond} {
-					
-					width:calc(100% + #{$respondX});					
-					margin-bottom:-$respondY;		
+
+					width:calc(100% + #{$respondX});
+					margin-bottom:-$respondY;
 
 					& + .o-row {
-						margin-top:$respondY;	
+						margin-top:$respondY;
 					}
 
-					> * {					
+					> * {
 						margin:0 $respondX $respondY 0;
-						@each $class, $bp in $break-units {
-							@include adapt($respondX, "m", $bp, $columns, 100);
-						}
+						@include adapt($respondX, "m", $respond, $columns, 100);
 					}
 
 				}
@@ -134,5 +156,5 @@ $grids: (
 
 		}
 	}
-	
+
 }

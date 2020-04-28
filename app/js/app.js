@@ -77,6 +77,22 @@ var SITE = SITE || {},
         }
     }
 
+    /* COOKIE NOTICE
+    ************************************************************************/
+
+    SITE.cookieNotice = function() {
+
+        var cookies = $(".c-cookies");
+
+        if (readCookie('cookies') == null) {
+            cookies.addClass("show");
+        }
+        cookies.find(".c-button").on("click", function() {
+            cookies.removeClass("show");
+            createCookie('cookies', '1');
+        });
+    }
+
     /* HEADER/NAV/SCROLL/EVENT/MISC
     ************************************************************************/
 
@@ -138,9 +154,7 @@ var SITE = SITE || {},
 
         }
 
-        squash();
-
-        $(document).on("scroll", function() {
+        $(document).on("scroll ready", function() {
             squash();
         });
 
@@ -185,6 +199,7 @@ var SITE = SITE || {},
     SITE.init = function() {
 
         SITE.fastClick();
+        SITE.cookieNotice();
         SITE.bump();
         SITE.smoothScrolling();
         SITE.scrollTransitions();

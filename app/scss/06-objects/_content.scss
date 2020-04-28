@@ -1,21 +1,39 @@
 .o-content {
 
 	width:100%;
-	
+
 	> * + * {
-		margin-top:calc(1.2rem * #{$zoom});	
+		margin-top:calc(1.4rem * #{$zoom});
+		@media #{$respond} {
+			margin-top: 1rem;
+		}
+	}
+
+	&--md {
+		> * + * {
+			margin-top:calc(1rem * #{$zoom});
+		}
 	}
 
 	&--sm {
 		> * + * {
-			margin-top:calc(0.9rem * #{$zoom});	
+			margin-top:calc(0.75rem * #{$zoom});
 		}
 	}
 
 	&--xs {
 		> * + * {
-			margin-top:calc(0.6rem * #{$zoom});	
+			margin-top:calc(0.5rem * #{$zoom});
 		}
-	}		
+	}
+
+	/* ELEMENTS - why is this here?
+	********************************************************************************/
+
+	p {
+		.c-button:first-child {
+			margin-top:0.5rem;
+		}
+	}
 
 }

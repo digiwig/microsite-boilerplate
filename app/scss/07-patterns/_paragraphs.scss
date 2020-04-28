@@ -1,19 +1,21 @@
 p {
 
 	font-size:em($font-size);
-	font-weight:300;
 
-	&.large {
-		font-size:em(48px);
+	&.xl {
+		font-size:em(30px);
 	}
 
-	&.small {
-		font-size:em(25px);
-	}
-
-	&.extra-small {
+	&.lg {
 		font-size:em(20px);
-		font-weight:400;
+	}
+
+	&.sm {
+		font-size:em(16px);
+	}
+
+	&.xs {
+		font-size:em(12px);
 	}
 
 	a:not(.c-button) {
@@ -22,5 +24,9 @@ p {
 			opacity: 0.5;
 		}
 	}
-	
+
+	&.lead {
+		margin-top:0;
+	}
+
 }

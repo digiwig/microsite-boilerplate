@@ -1,30 +1,33 @@
 .c-button {
 
 	/* DEFAULT
-	************************************************************************/	
+	************************************************************************/
 
 	display:inline-block;
 	text-align:center;
-	cursor:pointer;	
+	cursor:pointer;
 	padding:1em;
-	text-transform: uppercase;
-	font-size:em(25px);
+	font-size:em(16px);
+	font-weight:700;
 	border:0;
-	background:grey;	
+	background:grey;
 	color:white;
+	border-radius:8px;
+	line-height:1;
 
 	@include hover {
 		box-shadow: inset 0px 0px 100px 200px rgba(0,0,0,0.15);
 		text-decoration: none;
-	}	
+	}
 
 	@media #{$respond} {
-		display: block;
+		width:100%;
 	}
 
 	@media #{$default} {
-		max-width:em(300px, 25px);
-		width:100%;		
+		width:100%;
+		max-width:em(152px, 16px);
+		white-space: nowrap;
 	}
 
 	/* VARIATIONS
@@ -37,11 +40,11 @@
 	&--border {
 		background:transparent;
 		padding:calc(1em - 2px);
-		border:2px solid grey;		
+		border:2px solid grey;
 		color:grey;
 		&.c-button--slim {
 			padding:0.4em 1em;
-		}				
+		}
 	}
 
 	/* COLOURS
@@ -55,12 +58,12 @@
 		}
 
 		&--border--#{$name} {
-			@extend .c-button--border;			
-			border:2px solid #{$hex};			
+			@extend .c-button--border;
+			border:2px solid #{$hex};
 			color:#{$hex};
 			&.c-button--slim {
 				padding:0.4em 1em;
-			}			
+			}
 		}
 
 		&.color-#{$name} {
@@ -74,9 +77,9 @@
 ************************************************************************/
 
 .c-button-row {
-	display: flex;	
+	display: flex;
 	@media #{$respond} {
-		flex-direction: column;		
+		flex-direction: column;
 	}
 }
 
@@ -84,20 +87,19 @@
 	display: flex;
 	flex-direction: column;
 }
-/* PARAGRAPH BEHAVIOUR
+
+/* SIBLING BEHAVIOUR
 ************************************************************************/
-p {
-	.c-button {
-		white-space: nowrap;
-		@media #{$respond} {
-			& + .c-button {
-				margin-top:1em;
-			}			
+
+.c-button {
+	@media #{$respond} {
+		& + .c-button {
+			margin-top:1em;
 		}
-		@media #{$default} {
-			& + .c-button {
-				margin-left:1em;
-			}			
+	}
+	@media #{$default} {
+		& + .c-button {
+			margin-left:1em;
 		}
 	}
 }

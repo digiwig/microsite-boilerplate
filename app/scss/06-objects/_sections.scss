@@ -1,17 +1,18 @@
 .o-section {
 
 	/* DEFAULT
-	************************************************************************/	
+	************************************************************************/
 
 	width:100%;
-	padding:spacer("xl");
+	padding:spacer();
 	background-repeat:no-repeat;
-	background-position:center;	
+	background-position:center;
 	background-size:cover;
 	position:relative;
+	background-attachment:fixed;
 
 	/* PADDING VARIATIONS - see config/settings (spacers)
-	************************************************************************/	
+	************************************************************************/
 
 	@each $modifier, $value in $spacers {
 		&--#{$modifier} {
@@ -24,18 +25,18 @@
 		&--#{$modifier}--y {
 			padding-top:$value;
 			padding-bottom:$value;
-		}				
+		}
 	}
 
 	/* MOBILE BEHAVIOUR
 	************************************************************************/
 
 	@media #{$respond} {
-		padding:spacer(sm);			
+		padding:spacer();
 	}
 
 	/* PADDING HELPERS
-	************************************************************************/	
+	************************************************************************/
 
 	&--collapse {
 		padding:0;
@@ -49,7 +50,7 @@
 	&--collapse--y {
 		padding-top:0;
 		padding-bottom:0;
-	}	
+	}
 
 	&--collapse--top {
 		padding-top:0;
@@ -61,7 +62,7 @@
 
 	&--collapse--bottom {
 		padding-bottom:0;
-	}		
+	}
 
 	&--collapse--left {
 		padding-left:0;
@@ -70,14 +71,6 @@
 	/* ACF VARIATIONS
 	************************************************************************/
 
-	&--text-light {
-		color:color("white");
-	}
-
-	&--text-dark {
-		color:color("black");
-	}
-			
 	&__overlay {
 		position: absolute;
 		top:0;
@@ -90,8 +83,8 @@
 	}
 
 	> *:not(.o-section__overlay) {
-		//position:relative;
-		//z-index: 10; //this causes a little ugly clunky jump
+		position:relative;
+		z-index: 1;
 	}
 
 }

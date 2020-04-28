@@ -1,9 +1,14 @@
 .o-modules {
-	
+
 	width:100%;
-	display:flex;	
+	display:flex;
 	flex-direction: column;
 	justify-content:center;
+
+	&--inline {
+		margin:auto;
+		max-width:width();
+	}
 
 	> .o-container {
 		margin-left:0;

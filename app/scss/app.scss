@@ -33,11 +33,11 @@
 /* 06-OBJECTS
 ************************************************************************/
 @import "06-objects/_sections.scss";
+@import "06-objects/_container.scss";
+@import "06-objects/_modules.scss";
 @import "06-objects/_grids.scss";
 @import "06-objects/_content.scss";
-@import "06-objects/_container.scss";
 @import "06-objects/_flex.scss";
-@import "06-objects/_modules.scss";
 
 /* 07-PATTERNS
 ************************************************************************/
@@ -47,6 +47,7 @@
 /* 08-COMPONENTS
 ************************************************************************/
 @import "08-components/_buttons.scss";
+@import "08-components/_cookies.scss";
 @import "08-components/_forms.scss";
 
 /* 09-MODULES

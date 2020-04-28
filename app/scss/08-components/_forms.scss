@@ -1,13 +1,13 @@
 .c-form {
-	
-	width: 100%;
-	&__notification {
-		background-color:white;
-		padding:1em;		
-	}
-	> * + * {
-		margin-top: spacer(sm);
-	}
+
+    width: 100%;
+    &__notification {
+        background-color:white;
+        padding:1em;
+    }
+    > * + * {
+        margin-top: spacer(sm);
+    }
 
     form {
         > * + * {
@@ -16,28 +16,28 @@
     }
 
     input,select,textarea,button {
-        font-family: 'HP Simplified';
+        font-family: $body-font;
         width:100%;
         &.error {
             box-shadow:2px 2px 0px 0px rgba(red, 0.5);
         }
-    }    
-	
+    }
+
 }
 
 .c-field {
 
-	width:100%;
-	text-align: left;
+    width:100%;
+    text-align: left;
     & + .c-field {
         margin-top:0.5em;
     }
 
     label {
-    	font-weight:400;
-    	font-size:em(20px);
-    	display: block;
-    	margin-bottom: 0.25em;
+        font-weight:400;
+        font-size:em(20px);
+        display: block;
+        margin-bottom: 0.25em;
     }
 
     input[type="text"],
@@ -47,10 +47,10 @@
     select,
     textarea {
 
-    	display: block;
-    	width: 100%;
-    	font-size:em(20px);    	    	
-        resize:none;	
+        display: block;
+        width: 100%;
+        font-size:em(20px);
+        resize:none;
         appearance:none;
         border:0;
         padding:8px;
@@ -68,8 +68,8 @@
             font-weight:700;
             // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
             opacity: 1;
-        } 
-        
+        }
+
         // Disabled and read-only inputs
         //
         // HTML5 says that controls under a fieldset > legend:first-child won't be
@@ -88,13 +88,23 @@
         }
 
         &[type='submit'] {
-            
+
             @media #{$default} {
-                width:auto;    
-            }            
-            
-        }       	
-    }  
+                width:auto;
+            }
+
+        }
+
+        &:invalid {
+            color:$color-error;
+        }
+
+        &.has-error {
+            &::placeholder {
+                color:$color-error;
+            }
+        }
+    }
 
     input[type="checkbox"] {
         display: none;
@@ -138,32 +148,32 @@
 
         color: black;
         text-transform: uppercase;
-        font-weight:900;    
+        font-weight:900;
 
         &:focus::-ms-value {
-    		color: #6c757d;
-    		background-color: #fff;
+            color: #6c757d;
+            background-color: #fff;
         }
 
         &:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 #000;
-        }    
+        }
 
         &[size],
         &[multiple] {
             height: auto;
-        }	
+        }
 
     }
 
     textarea {
-    	height:100px;
+        height:100px;
     }
 
-    input:invalid {    
+    input:invalid {
         box-shadow:2px 2px 0px 0px rgba(red, 0.5);
-    }    
+    }
 
 }
 
@@ -171,25 +181,49 @@
 .c-field-row, .c-field-group {
     @media #{$default} {
         display: flex;
-        .c-field {            
+        .c-field {
             & + .c-field {
                 margin:0 0 0 em(30px);
             }
-        } 
+        }
         &.c-field-row {
             .c-field {
                 flex:1;
             }
-        }        
+        }
     }
     & + .c-field-row, & + .c-field-group {
         margin-top:em(30px);
         @media #{$respond} {
             margin-top:1rem;
         }
-    } 
-    
+    }
+
     &--center {
         justify-content: center;
-    }   
+    }
+}
+
+/* FORM VALIDATION ALERTS
+****************************************************************************************************/
+
+.has-error {
+    color:$color-error;
+}
+
+.c-alert {
+    width: 100%;
+    padding: spacer( 'xs' );
+    text-align: center;
+    font-weight:600;
+    margin-top:2rem;
+    background:white;
+}
+
+.c-alert--error {
+    color: $color-error;
+}
+
+.c-alert--success {
+    color: $color-success;
 }

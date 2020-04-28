@@ -3,32 +3,33 @@
 
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6 {
-	text-transform: uppercase;	
+	line-height:1;
+	font-weight:400;
 }
 
 /* HEADING CLASSES
 **********************************************************************/
 
 h1, .h1 {
-	font-size:em(75px);	
+	font-size:em(50px);
 }
-	
+
 h2, .h2 {
-	font-size:em(50px);	
+	font-size:em(36px);
 }
 
 h3, .h3 {
-	font-size:em(40px);	
+	font-size:em(26px);
 }
 
 h4, .h4 {
-	font-size:em(30px);	
+	font-size:em(18px);
 }
 
 h5, .h5 {
-	font-size:em(20px);	
+	font-size:em(16px);
 }
 
 h6, .h6 {
-	font-size:em(16px);	
+	font-size:em(14px);
 }

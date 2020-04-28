@@ -1,0 +1,34 @@
+.c-cookies {
+
+	padding:spacer(xs);
+	position: fixed;
+	z-index:20;
+	bottom:spacer(xs);
+	left:spacer(xs);
+	max-width:375px;
+	transition: all $speed ease-in-out;
+	transform: translateY(calc(100% + #{spacer(xs)}));
+	opacity:0;
+	pointer-events:none;
+	color:white;
+	background:black;
+
+	&.show {
+		transform: translateY(0);
+		opacity:1;
+		pointer-events:auto;
+	}
+
+	.c-button {
+		width: 100%;
+		max-width:none;
+	}
+
+	@media #{$mobile} {
+		max-width:none;
+		left:0;
+		right:0;
+		bottom:0;
+	}
+
+}

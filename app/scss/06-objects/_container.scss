@@ -9,6 +9,10 @@
 	max-width:width();
 	align-self:center;
 
+	@media #{$ie} {
+		min-height:1px;
+	}
+
 	/* WIDTH VARIATIONS - see config/settings.scss
 	************************************************************************/
 
@@ -19,9 +23,9 @@
 	}
 
 	&--half {
-		@media #{$default} {
-			width:50%;	
-		}		
+		@media #{$desktop} {
+			width:50%;
+		}
 		max-width: none;
 	}
 
@@ -32,9 +36,9 @@
 	&--auto {
 		width:auto;
 		max-width:none;
-	}	
+	}
 
-	/* FLEX POSITIONING	
+	/* FLEX POSITIONING
 	************************************************************************/
 
 	&--top {
@@ -43,7 +47,7 @@
 
 	&--right {
 		align-self: flex-end;
-	}		
+	}
 
 	&--bottom {
 		margin-top:auto;
@@ -51,15 +55,39 @@
 
 	&--left {
 		align-self: flex-start;
-	}	
+	}
 
 	/* STACKING BEHAVIOUR
 	************************************************************************/
 
 	& + .o-container {
-		margin-top:spacer(xl);
+		margin-top:spacer(md);
 		@media #{$respond} {
-			margin-top: spacer(lg);
+			margin-top: spacer(sm);
+		}
+	}
+
+	&--attached {
+		& + .o-container {
+			margin-top:calc(3rem * #{$zoom});
+			@media #{$respond} {
+				margin-top: spacer();
+			}
+		}
+	}
+
+	&--inline {
+		& + .o-container {
+			margin-top:calc(2rem * #{$zoom});
+			@media #{$respond} {
+				margin-top: 1rem;
+			}
+		}
+	}
+
+	&--flush {
+		& + .o-container {
+			margin-top:0;
 		}
 	}
 

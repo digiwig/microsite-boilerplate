@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css?ver=1" type="text/css" media="all" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	<link rel="stylesheet" href="/dist/css/app.css?t=<?=time("now");?>" type="text/css" media="all">
-
 </head>
 <body>
 	<?php include "./inc/site-header.php" ?>
