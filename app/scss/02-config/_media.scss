@@ -1,11 +1,10 @@
 /* HARDWARE SPECIFIC
 ************************************************************/
 $mobile: 	"(max-width:767px)"; 												/* smartphone only */
-$device: 	"(max-width:1024px)";												/* smartphone - tablet  */
-$tablet: 	"(min-width:768px) and (max-width:1024px)";							/* tablet only  */
-$tabtop: 	"(min-width:768px)";												/* tablet - desktop  */											/* tablet-landscape - desktop  */
-$laptop:	"(min-width:1024px) and (max-width:1280px)";						/* 13" laptop only */
-$desktop: 	"(min-width:1024px)";												/* desktop only  */
+$device: 	"(max-width:1080px)";												/* smartphone > tablet  */
+$tablet: 	"(min-width:768px) and (max-width:1080px)";							/* tablet only  */
+$tabtop: 	"(min-width:768px)";												/* tablet > desktop  */
+$desktop: 	"(min-width:1081px)";												/* desktop only  */
 
 /* BROWSER SPECIFIC
 ************************************************************/
@@ -21,8 +20,8 @@ $landscape: "and (orientation: landscape)";
 /* SCREEN SIZE SPECIFIC
 ************************************************************/
 $screen-xs:	"(max-width:767px)";
-$screen-sm:	"(min-width:768px) and (max-width:1023px)";
-$screen-md:	"(min-width:1024px) and (max-width:1280px)";
+$screen-sm:	"(min-width:768px) and (max-width:1079px)";
+$screen-md:	"(min-width:1080px) and (max-width:1280px)";
 $screen-lg:	"(min-width:1281px) and (max-width:1440px)";
 $screen-xl:	"(min-width:1441px)";
 

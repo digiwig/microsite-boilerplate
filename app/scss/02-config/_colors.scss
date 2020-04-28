@@ -1,31 +1,31 @@
 /* Raw hex color vars, accessible through color(name) funciton
-/* http://chir.ag/projects/name-that-color/
+/* http://chir.ag/projects/name-that-color/ - https://www.htmlcsscolor.com
 ************************************************************************/
 
 $colors: (
-	
-	/* Colours */
-	"red":			#ff0000,
-	"blue":			#000fff,
-	"yellow":		#fff000,
 
+	/* Colours */
+	"granny-apple":			#d0f4ea,
+	"mimosa":				#e8fcc2,
+	"wild-willow":			#b1cc74,
+	"shuttle-grey":			#545F66,
+	"regent-grey":			#829399,
 
 	/* Greyscale */
-	"black":		#000000,
-	"medium-grey":	#999999,
-	"light-grey":	#eeeeee,
-	"white": 		#ffffff,
+	"black":				#000000,
+	"white": 				#ffffff,
 
 );
 
 /* Semantic colour vars
 ************************************************************************/
 
-$primary: color("red");
+$primary: color("black");
 $body-color: set-contrast-color($primary);
 $constrast-color: set-contrast-color($body-color);
 
-/* Real life black and white
+/* STATE COLOURS
 ************************************************************************/
-$black: #000000;
-$white: #ffffff;
+
+$color-error: red;
+$color-success: green;

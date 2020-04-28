@@ -1,20 +1,20 @@
 /* ANIMATION DELAY HELPERS
 ************************************************************************/
 
+.delay0 {
+  animation-delay: 0;
+}
+
 .delay1 {
-  animation-delay: $speed;
+  animation-delay: 0.1s;
 }
 
 .delay2 {
-  animation-delay: $speed*1.25; 
+  animation-delay: 0.2s
 }
 
 .delay3 {
-  animation-delay: $speed*1.5;
-}
-
-.delay4 {
-  animation-delay: $speed*1.75;
+  animation-delay: 0.3s;
 }
 
 /* BREAKPOINT ADAPT HELPERS
@@ -85,15 +85,15 @@
 }
 
 .justify-start {
-  justify-content:flex-start; 
+  justify-content:flex-start;
 }
 
 .justify-center {
-  justify-content:center; 
+  justify-content:center;
 }
 
 .justify-end {
-  justify-content:flex-end; 
+  justify-content:flex-end;
 }
 
 .justify-between {
@@ -133,6 +133,10 @@
 /* FONT WEIGHT HELPERS
 ************************************************************************/
 
+.weight-300 {
+  font-weight:300;
+}
+
 .weight-400 {
   font-weight:400;
 }
@@ -145,30 +149,31 @@
   font-weight:700;
 }
 
+.weight-900 {
+  font-weight:900;
+}
+
 /*  BACKGROUND AND COLOUR HELPERS (see config/colors.scss)
 ************************************************************************/
 
 @each $name, $hex in $colors {
   .background-#{$name} {
     background-color:#{$hex};
-
   }
   .color-#{$name} {
     color:#{$hex};
-  } 
+  }
+  .color-#{$name}-contrast {
+    color:set-contrast-color($hex);
+  }
 }
 
 /* Additional padding classes
 ************************************************************************/
 @media #{$default} {
-  @each $modifier, $value in $spacers {  
+  @each $modifier, $value in $spacers {
     .padding-#{$modifier} {
       padding:$value;
     }
-  }
-}
-@media #{$respond} {
-  [class*="padding-"] {
-    padding:spacer(sm);
   }
 }

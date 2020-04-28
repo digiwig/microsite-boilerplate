@@ -2,10 +2,10 @@
 /* MANDATORY BASICS
 ************************************************************************/
 
-$font-size:			30px;						/* Base REM, for normal paragraphs */
+$font-size:			16px;						/* Base REM, for normal paragraphs */
 $speed:				0.5s;						/* Global default transition speed */
 $assets: 			"/assets"; 					/* Path to assets */
-$zoom:				0.67;						/* When the PSD is massive, scale content relatively */
+$zoom:				1;							/* When the PSD is massive, scale content relatively */
 $line-height:		1.4;
 $body-font:			'Roboto Slab', serif;
 
@@ -26,6 +26,7 @@ $spacers: (
 	md:				em(65px),
 	lg:				em(90px),
 	xl:				em(120px),
+	vw:				6vw,
 );
 
 /* DEVELOPMENT TOOLS
@@ -40,5 +41,61 @@ $devmode: 			true;						/* View semi transparent bg on all elements */
 			background-color: rgba(grey, 0.75) !important;
 		}
 	}
-}					
+}
 
+$columns:			false;													/* Show grid columns */
+
+@if $columns {
+
+
+	/* Settings */
+	:root {
+		--offset: 0rem;
+		--max_width: 1152px;
+		--columns: 12;
+		--gutter: 2vw;
+		--baseline: 3rem;
+		--baseline-shift: 2rem;
+		--color: red;
+	}
+
+	/* Helper variables */
+	:root {
+		--repeating-width: calc(100% / var(--columns));
+		--column-width: calc((100% / var(--columns)) - var(--gutter));
+		--background-width: calc(100% + var(--gutter));
+		--background-columns: repeating-linear-gradient(
+			to right,
+			var(--color),
+			var(--color) var(--column-width),
+			transparent var(--column-width),
+			transparent var(--repeating-width)
+			);
+		--background-baseline: repeating-linear-gradient(
+			to bottom,
+			var(--color),
+			var(--color) 0px,
+			transparent 0px,
+			transparent var(--baseline)
+			);
+	}
+
+	.site-main .o-container {
+		position: relative;
+		&::before {
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			margin-right: auto;
+			margin-left: auto;
+			width: calc(100% - (2 * var(--offset)));
+			max-width: var(--max_width);
+			content: '';
+			background-image: var(--background-columns), var(--background-baseline);
+			background-size: var(--background-width) 100%;
+			background-position: 0 var(--baseline-shift);
+			z-index: 1000;
+			pointer-events: none;
+			opacity: 0.25;
+		}
+	}
+}

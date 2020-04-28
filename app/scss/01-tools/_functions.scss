@@ -1,7 +1,7 @@
 /* Returns spacer value
 ********************************************************************************/
 
-@function spacer($key: "xs") {
+@function spacer($key: "vw") {
     @return map-get($spacers, $key);
 }
 
@@ -44,7 +44,7 @@
 
 @function monochrome($color, $shade:false) {
 	@if($shade) {
-		@return lighten(saturate(adjust-hue($color, -17), 30.60), 47.45);		
+		@return lighten(saturate(adjust-hue($color, -17), 30.60), 47.45);
 	} @else {
 		@return lighten(saturate(adjust-hue($color, -13), 15.60), 28.63);
 	}
