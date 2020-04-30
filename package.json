@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"fastclick": "^1.0.6",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.0",
 		"jquery-inview": "^1.1.2",
 		"magnific-popup": "^1.1.0",
 		"most-visible": "^1.5.0",
