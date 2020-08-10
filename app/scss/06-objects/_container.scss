@@ -23,8 +23,15 @@
 	}
 
 	&--half {
-		@media #{$desktop} {
+		@media #{$desktop}, #{$tablet} #{$landscape} {
 			width:50%;
+		}
+		max-width: none;
+	}
+
+	&--two-thirds {
+		@media #{$desktop}, #{$tablet} #{$landscape} {
+			width:66.666%;
 		}
 		max-width: none;
 	}
@@ -61,9 +68,18 @@
 	************************************************************************/
 
 	& + .o-container {
-		margin-top:spacer(md);
+		margin-top:calc(3rem * #{$zoom});
 		@media #{$respond} {
-			margin-top: spacer(sm);
+			margin-top: spacer();
+		}
+	}
+
+	&--detached {
+		& + .o-container {
+			margin-top:spacer(md);
+			@media #{$respond} {
+				margin-top: spacer(sm);
+			}
 		}
 	}
 

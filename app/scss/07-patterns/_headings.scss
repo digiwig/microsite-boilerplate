@@ -33,3 +33,32 @@ h5, .h5 {
 h6, .h6 {
 	font-size:em(14px);
 }
+/* DISPLAY HEADING CLASSES
+**********************************************************************/
+
+.display-heading {
+	text-transform: uppercase;
+	font-weight:700;
+	line-height: 1;
+	&--1 {
+		@extend .display-heading;
+		font-size:em(100px);
+		@media #{$respond} {
+			font-size: 15vw;
+		}
+	}
+	&--2 {
+		@extend .display-heading;
+		font-size:em(80px);
+		@media #{$respond} {
+			font-size: 12vw;
+		}
+	}
+	&--3 {
+		@extend .display-heading;
+		font-size:em(60px);
+		@media #{$respond} {
+			font-size: 9vw;
+		}
+	}
+}

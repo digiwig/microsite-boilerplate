@@ -64,6 +64,16 @@
 	@return $true;
 }
 
+/* STRIP UNIT
+********************************************************************************/
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 /* PX to EM
 ********************************************************************************/
 
@@ -77,3 +87,22 @@
 @function rem($pixels, $context: $font-size) {
   @return #{$pixels/$context}rem;
 }
+
+/* PX TO VW
+********************************************************************************/
+@function vw($target) {
+  $vw-context: (strip-unit(width())*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+
+/* TEXT SHADOW
+********************************************************************************/
+@function textshadow($color, $steps) {
+	$color: darken($color, 7.5%);
+	$style: 1px 1px 0px #{$color};
+	@for $i from 2 through $steps {
+		$style: $style + ", #{$i}px #{$i}px 0px #{$color}";
+	}
+	@return unquote($style);
+}
+

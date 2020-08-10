@@ -21,6 +21,11 @@ $widths: (
 );
 
 $spacers: (
+	1:				1rem,
+	2:				2rem,
+	3:				3rem,
+	4:				4rem,
+	5:				5rem,
 	xs:				em(30px),
 	sm:				em(40px),
 	md:				em(65px),
@@ -29,13 +34,61 @@ $spacers: (
 	vw:				6vw,
 );
 
-/* DEVELOPMENT TOOLS
+/* FONT SIZES
 ************************************************************************/
 
-$devmode: 			true;						/* View semi transparent bg on all elements */
+$font-sizes: (
+	10px,
+	12px,
+	14px,
+	16px,
+	18px,
+	20px,
+	22px,
+	24px,
+	26px,
+	28px,
+	30px,
+	32px,
+	34px,
+	36px,
+	38px,
+	40px,
+	42px,
+	44px,
+	46px,
+	48px,
+	50px,
+	52px,
+	54px,
+	56px,
+	58px,
+	60px,
+	65px,
+	70px,
+	75px,
+	80px,
+	85px,
+	90px,
+	95px,
+	100px,
+	110px,
+	120px,
+	130px,
+	140px,
+	150px,
+	175px,
+	200px,
+);
+
+/* DEV MODE
+/* View semi transparent bg on all elements
+************************************************************************/
+
+$devmode: 			true;
 
 @if $devmode {
-	body * {
+	body:not(.wp-admin) * {
 		background-color: rgba(white, 0.25) !important;
 		&:nth-child(even) {
 			background-color: rgba(grey, 0.75) !important;
@@ -43,7 +96,11 @@ $devmode: 			true;						/* View semi transparent bg on all elements */
 	}
 }
 
-$columns:			false;													/* Show grid columns */
+/* SHOW COLUMNS
+/* Show grid columns
+************************************************************************/
+
+$columns:			false;
 
 @if $columns {
 

@@ -1,24 +1,24 @@
+/* ANIMATION DURATION HELPERS
+********************************************************************************/
+
+@for $i from 1 through 3 {
+  .duration-#{$i} {
+    animation-duration:$speed * $i;
+  }
+}
+
+
 /* ANIMATION DELAY HELPERS
-************************************************************************/
+********************************************************************************/
 
-.delay0 {
-  animation-delay: 0;
-}
-
-.delay1 {
-  animation-delay: 0.1s;
-}
-
-.delay2 {
-  animation-delay: 0.2s
-}
-
-.delay3 {
-  animation-delay: 0.3s;
+@for $i from 1 through 3 {
+  .delay-#{$i} {
+    animation-delay:$speed * $i;
+  }
 }
 
 /* BREAKPOINT ADAPT HELPERS
-************************************************************************/
+********************************************************************************/
 
 .respond {
   display:none;
@@ -70,7 +70,7 @@
 }
 
 /* FLEXBOX HELPERS
-************************************************************************/
+********************************************************************************/
 
 .align-start {
   align-items:flex-start;
@@ -101,7 +101,7 @@
 }
 
 /* TEXT ALIGNMENT HELPERS
-************************************************************************/
+********************************************************************************/
 
 .text-left {
   text-align: left;
@@ -116,22 +116,23 @@
 }
 
 /* FONT SIZE HELPERS
-************************************************************************/
+********************************************************************************/
 
-.size-2 {
-  font-size:1.5em;
-}
-
-.size-3 {
-  font-size:3rem;
-}
-
-.size-4 {
-  font-size:4rem;
+@each $size in $font-sizes {
+  $class: strip-unit($size);
+  .size-#{$class} {
+    font-size:em($size, $font-size);
+    // &--vw {
+    //   font-size:em($size, $font-size);
+    //   @media (max-width:#{width()-1px}) {
+    //     font-size:vw($size);
+    //   }
+    // }
+  }
 }
 
 /* FONT WEIGHT HELPERS
-************************************************************************/
+********************************************************************************/
 
 .weight-300 {
   font-weight:300;
@@ -153,8 +154,68 @@
   font-weight:900;
 }
 
+/* PADDING HELPERS
+********************************************************************************/
+
+@each $modifier, $value in $spacers {
+
+  .p-#{$modifier} {
+    padding:$value;
+  }
+  .px-#{$modifier} {
+    padding-left:$value;
+    padding-right:$value;
+  }
+  .py-#{$modifier} {
+    padding-top:$value;
+    padding-bottom:$value;
+  }
+  .pt-#{$modifier} {
+    padding-top:$value;
+  }
+  .pr-#{$modifier} {
+    padding-right:$value;
+  }
+  .pb-#{$modifier} {
+    padding-bottom:$value;
+  }
+  .pl-#{$modifier} {
+    padding-left:$value;
+  }
+}
+
+/* MARGIN HELPERS
+********************************************************************************/
+
+@each $modifier, $value in $spacers {
+
+  .m-#{$modifier} {
+    margin:$value;
+  }
+  .mx-#{$modifier} {
+    margin-left:$value;
+    margin-right:$value;
+  }
+  .my-#{$modifier} {
+    margin-top:$value;
+    margin-bottom:$value;
+  }
+  .mt-#{$modifier} {
+    margin-top:$value;
+  }
+  .mr-#{$modifier} {
+    margin-right:$value;
+  }
+  .mb-#{$modifier} {
+    margin-bottom:$value;
+  }
+  .ml-#{$modifier} {
+    margin-left:$value;
+  }
+}
+
 /*  BACKGROUND AND COLOUR HELPERS (see config/colors.scss)
-************************************************************************/
+********************************************************************************/
 
 @each $name, $hex in $colors {
   .background-#{$name} {
@@ -166,14 +227,9 @@
   .color-#{$name}-contrast {
     color:set-contrast-color($hex);
   }
-}
-
-/* Additional padding classes
-************************************************************************/
-@media #{$default} {
-  @each $modifier, $value in $spacers {
-    .padding-#{$modifier} {
-      padding:$value;
+  .hover-#{$name} {
+    &:hover {
+      color:$hex;
     }
   }
 }

@@ -1,6 +1,7 @@
 .o-content {
 
 	width:100%;
+	box-sizing: border-box;
 
 	> * + * {
 		margin-top:calc(1.4rem * #{$zoom});

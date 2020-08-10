@@ -43,7 +43,7 @@
 
 			position:fixed;
 			top:0;
-			z-index: 1;
+			z-index: 100;
 
 			& + * {
 				margin-top:calc(3em);

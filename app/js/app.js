@@ -1,6 +1,7 @@
 // =require fastclick/lib/fastclick.js
 // =require jquery/dist/jquery.min.js
 // =require jquery-inview/jquery.inview.min.js
+// =require most-visible/dist/most-visible.min.js
 
 var SITE = SITE || {},
     supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -19,7 +20,7 @@ var SITE = SITE || {},
             var expires = "; expires=" + date.toGMTString();
         }
         else var expires = "";
-        document.cookie = name + "=" + value + expires + "; path=/";
+        document.cookie = name + "=" + value + expires + "; sameSite=None; path=/";
     };
 
     var readCookie = function (name) {
@@ -98,6 +99,8 @@ var SITE = SITE || {},
 
     SITE.bump = function() {
 
+        $("body").addClass('scroll-top');
+        var squash = function() {
         var body = $("body"),
             fold = $(window).height(),
             bottom = $(document).height(),
@@ -105,9 +108,6 @@ var SITE = SITE || {},
             onUp = true,
             lastScrollTop = 0;
 
-        body.addClass('scroll-top');
-
-        var squash = function() {
 
             var distance = window.pageYOffset || document.documentElement.scrollTop,
                 condition = (onUp)
@@ -119,7 +119,7 @@ var SITE = SITE || {},
             ************************************************************************/
 
             distance > 0
-                ? body.removeClass("scroll-top")
+                ? body.removeClass("scroll-top").addClass("scrolled")
                 : body.addClass("scroll-top").removeClass("scroll-up");
 
             /* BOTTOM
@@ -193,6 +193,37 @@ var SITE = SITE || {},
 
     }
 
+    /* Add 'inview' class when in view
+    /* (https://github.com/protonet/jquery.inview)
+    ************************************************************************/
+
+    SITE.inViewClass = function() {
+
+        $('.wheninview').on('inview', function(event, isInView) {
+            if (isInView) {
+                $(this).addClass("inview");
+            }
+        });
+
+    };
+    
+    /* SECTION MOST VISIBILE
+    ************************************************************************/    
+    
+    SITE.mostVisible = function() {
+
+        var $sections = $('.o-section');
+
+        checkVisibility();
+
+        $(window).on('scroll', function () {
+            checkVisibility();
+        });
+
+        function checkVisibility() {
+            $sections.removeClass('most-visible').mostVisible().addClass('most-visible');
+        }
+    }
     /* INITIALISATION
     ************************************************************************/
 
@@ -203,6 +234,8 @@ var SITE = SITE || {},
         SITE.bump();
         SITE.smoothScrolling();
         SITE.scrollTransitions();
+        SITE.inViewClass();
+        SITE.mostVisible();
 
     };
 
