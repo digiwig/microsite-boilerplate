@@ -4,7 +4,7 @@
 	************************************************************************/
 
 	width:100%;
-	padding:spacer();
+	padding:spacer(vw);
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:cover;
@@ -67,24 +67,4 @@
 	&--collapse--left {
 		padding-left:0;
 	}
-
-	/* ACF VARIATIONS
-	************************************************************************/
-
-	&__overlay {
-		position: absolute;
-		top:0;
-		right:0;
-		bottom:0;
-		left:0;
-		display: block;
-		content:"";
-		z-index:0;
-	}
-
-	> *:not(.o-section__overlay) {
-		position:relative;
-		z-index: 1;
-	}
-
 }

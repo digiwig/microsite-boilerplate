@@ -2,6 +2,7 @@
 // =require jquery/dist/jquery.min.js
 // =require jquery-inview/jquery.inview.min.js
 // =require most-visible/dist/most-visible.min.js
+// =require bootstrap/dist/js/bootstrap.bundle.min.js
 
 var SITE = SITE || {},
     supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -206,10 +207,10 @@ var SITE = SITE || {},
         });
 
     };
-    
+
     /* SECTION MOST VISIBILE
-    ************************************************************************/    
-    
+    ************************************************************************/
+
     SITE.mostVisible = function() {
 
         var $sections = $('.o-section');
