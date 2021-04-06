@@ -10,7 +10,6 @@ $grids: (
 		respondX:	30px,										/* Optional value for horizontal margin between grid units at the global $respond breakpoint (defined in media.scss), only works when class .respondXY is used on grid a grid row element.
 		respondY:	30px,										/* Same as above but for vertical margin between grid units.
 		column:		12,											/* The number of columns used in this grid config. Use u-6-12 for a 50% width grid unit, u-4-12 for a third etc. Use m-12-12 to make that grid unit change width at the mobile breakpoint.
-		row:		row,										/* Class name for the grid rows in this grid config.
 		auto:		true,										/* Allow grid units to inherit a defined width based on the nth number of grid units in that row. So a row of 4 grid units without a defined unit class would inherit u-3-12, in this column config.
 		break-units: (											/* Define selector names and breakpoints. Eg "t: $tablet" - means a class of t-*-* selectors will be generated and will only become usable within the $tablet range (defined in media.scss).
 			m:		$respond,

@@ -10,6 +10,8 @@
 	background-size:cover;
 	position:relative;
 	background-attachment:fixed;
+	box-sizing: border-box;
+	overflow:hidden;
 
 	/* PADDING VARIATIONS - see config/settings (spacers)
 	************************************************************************/
@@ -25,6 +27,40 @@
 		&--#{$modifier}--y {
 			padding-top:$value;
 			padding-bottom:$value;
+		}
+	}
+
+	/* OFFSET
+	************************************************************************/
+
+	&--offset {
+
+		&--sm {
+			padding-bottom:12vw;
+			& + * {
+				overflow:visible;
+				.o-modules {
+					margin-top:-12vw;
+				}
+			}
+		}
+		&--md {
+			padding-bottom:24vw;
+			& + * {
+				overflow:visible;
+				.o-modules {
+					margin-top:-24vw;
+				}
+			}
+		}
+		&--lg {
+			padding-bottom:36vw;
+			& + * {
+				overflow:visible;
+				.o-modules {
+					margin-top:-36vw;
+				}
+			}
 		}
 	}
 

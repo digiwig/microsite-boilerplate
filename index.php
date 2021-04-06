@@ -17,7 +17,7 @@
 			<div class="o-container o-container--full">
 				<div class="m-hero m-hero--full-height m-hero--overlay--gradient-right m-hero--bottom-right">
 					<div class="o-content">
-						<h1 class="h2 color-theme">Seize opportunities<br> to add revenue with<br> carrier-grade Wi-Fi</h1>
+						<h1 class="h2 color-theme display-heading--1">Seize opportunities<br> to add revenue with<br> carrier-grade Wi-Fi</h1>
 					</div>
 				</div>
 			</div>

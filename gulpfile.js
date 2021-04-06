@@ -58,7 +58,7 @@ function scripts() {
  */
 function watchFiles() {
     gulp.watch(config.sass.input, css);
-    gulp.watch(config.js.input, scripts);    
+    gulp.watch(config.js.input, scripts);
 }
 
 // define complex tasks

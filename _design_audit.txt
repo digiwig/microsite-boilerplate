@@ -1,0 +1,24 @@
+NEW SITE DESIGN AUDIT
+
+- [] Define colours
+- [] Define widths
+- [] Define paddings
+- [] Define heading sizes
+- [] Define paragraph sizes
+- [] Define grids
+- [] Define font family(s)
+- [] Define icons
+- [] Define buttons
+- [] Define a list of modules
+
+GATHER ASSETS
+
+- [] Icons
+- [] Fonts
+- [] Logos
+- [] Images
+
+NEW SITE BUILD
+
+- [] Build Header/nav/Main/Footer (inc. mobile representations).
+- [] Build modules.

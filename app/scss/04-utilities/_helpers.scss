@@ -122,12 +122,12 @@
   $class: strip-unit($size);
   .size-#{$class} {
     font-size:em($size, $font-size);
-    // &--vw {
-    //   font-size:em($size, $font-size);
-    //   @media (max-width:#{width()-1px}) {
-    //     font-size:vw($size);
-    //   }
-    // }
+    &--vw {
+      font-size:em($size, $font-size);
+      @media (max-width:#{width()-1px}) {
+        font-size:vw($size);
+      }
+    }
   }
 }
 
@@ -220,6 +220,9 @@
 @each $name, $hex in $colors {
   .background-#{$name} {
     background-color:#{$hex};
+    &.color-contrast {
+      color:set-contrast-color($hex);
+    }
   }
   .color-#{$name} {
     color:#{$hex};

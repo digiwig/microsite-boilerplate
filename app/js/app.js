@@ -2,7 +2,7 @@
 // =require jquery/dist/jquery.min.js
 // =require jquery-inview/jquery.inview.min.js
 // =require most-visible/dist/most-visible.min.js
-// =require bootstrap/dist/js/bootstrap.bundle.min.js
+//// =require bootstrap/dist/js/bootstrap.bundle.min.js
 
 var SITE = SITE || {},
     supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -21,7 +21,7 @@ var SITE = SITE || {},
             var expires = "; expires=" + date.toGMTString();
         }
         else var expires = "";
-        document.cookie = name + "=" + value + expires + "; sameSite=None; path=/";
+        document.cookie = name + "=" + value + "; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/";
     };
 
     var readCookie = function (name) {
@@ -95,13 +95,27 @@ var SITE = SITE || {},
         });
     }
 
+    /* FOCUS ELEMENTS
+    ************************************************************************/
+
+    SITE.focusElements = function() {
+
+        $("*").focus(function(){
+            $(".focus-element").removeClass("focus-element");
+            $(this).addClass("focus-element");
+        });
+
+        $(document).on("mousemove mousedown", function() {
+            $(".focus-element").removeClass("focus-element");
+        });
+
+    }
+
     /* HEADER/NAV/SCROLL/EVENT/MISC
     ************************************************************************/
 
     SITE.bump = function() {
 
-        $("body").addClass('scroll-top');
-        var squash = function() {
         var body = $("body"),
             fold = $(window).height(),
             bottom = $(document).height(),
@@ -109,19 +123,21 @@ var SITE = SITE || {},
             onUp = true,
             lastScrollTop = 0;
 
+        body.addClass('scroll-top');
+
+        var squash = function() {
 
             var distance = window.pageYOffset || document.documentElement.scrollTop,
                 condition = (onUp)
                     ? (distance > lastScrollTop & distance > 0)
                     : distance > 0;
 
-
             /* TOP
             ************************************************************************/
 
             distance > 0
                 ? body.removeClass("scroll-top").addClass("scrolled")
-                : body.addClass("scroll-top").removeClass("scroll-up");
+                : body.removeClass("scrolled").addClass('scroll-top');;
 
             /* BOTTOM
             ************************************************************************/
@@ -225,6 +241,7 @@ var SITE = SITE || {},
             $sections.removeClass('most-visible').mostVisible().addClass('most-visible');
         }
     }
+
     /* INITIALISATION
     ************************************************************************/
 
@@ -232,6 +249,7 @@ var SITE = SITE || {},
 
         SITE.fastClick();
         SITE.cookieNotice();
+        SITE.focusElements();
         SITE.bump();
         SITE.smoothScrolling();
         SITE.scrollTransitions();

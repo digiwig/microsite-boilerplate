@@ -31,9 +31,21 @@
 	/* ELEMENTS - why is this here?
 	********************************************************************************/
 
+	ul {
+		margin:0;
+		list-style-type: disc;
+		padding-left: 1rem;
+	}
+
 	p {
 		.c-button:first-child {
 			margin-top:0.5rem;
+		}
+	}
+
+	li, p {
+		a:not(.c-button) {
+			text-decoration: underline;
 		}
 	}
 
