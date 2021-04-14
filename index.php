@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="o-section background-white">
+		<section class="o-section">
 			<div class="o-modules">
 				<div class="o-container o-container--md">
 					<div class="o-content">

@@ -68,24 +68,41 @@ function scripts() {
 /**
  * WATCH task - run 'gulp watch'
  *
- * @task scss
+ * @task css
  * @task js
  *
  * watches input raw files for updates and auto runs the appropriate tasks
  */
-function watchFiles() {
+function watchFilesDevelop() {
     gulp.watch(config.sass.input, css);
+    gulp.watch(config.js.input, scripts);
+}
+
+/**
+ * WATCH task - run 'gulp ready'
+ *
+ * @task purge
+ * @task js
+ *
+ * watches input raw files for updates and auto runs the appropriate tasks
+ */
+function watchFilesProduction() {
+    gulp.watch(['**/*.php'], purge);
+    gulp.watch(config.sass.input, purge);
     gulp.watch(config.js.input, scripts);
 }
 
 // define complex tasks
 const js = gulp.series(scripts);
 const build = gulp.series(purge, scripts);
-const watch = gulp.parallel(watchFiles);
+const watch = gulp.parallel(watchFilesDevelop);
+const ready = gulp.parallel(watchFilesProduction);
 
 //export tasks
 exports.css = css;
 exports.js = js;
 exports.build = build;
 exports.watch = watch;
+exports.ready = ready;
 exports.default = build;
+
