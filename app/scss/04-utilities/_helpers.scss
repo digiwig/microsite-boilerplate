@@ -122,12 +122,6 @@
   $class: strip-unit($size);
   .size-#{$class} {
     font-size:em($size, $font-size);
-    &--vw {
-      font-size:em($size, $font-size);
-      @media (max-width:#{width()-1px}) {
-        font-size:vw($size);
-      }
-    }
   }
 }
 

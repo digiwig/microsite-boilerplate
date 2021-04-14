@@ -88,7 +88,7 @@ $font-sizes: (
 $devmode: 			true;
 
 @if $devmode {
-	body:not(.wp-admin) * {
+	body *:not(.c-button) {
 		background-color: rgba(white, 0.25) !important;
 		&:nth-child(even) {
 			background-color: rgba(grey, 0.75) !important;

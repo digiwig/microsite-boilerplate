@@ -1,0 +1,27 @@
+/* LAYOUT
+********************************************************************************/
+
+:root {
+
+	@media #{$mobile} {
+		--sectionPadding: 2rem;
+	}
+
+	@media #{$tablet} {
+		--sectionPadding: 3vw;
+	}
+
+	@media #{$desktop} {
+		--sectionPadding: 4vw;
+	}
+
+}
+
+/* COLORS
+********************************************************************************/
+
+:root {
+	@each $name, $hex in $colors {
+		--#{$name}:	#{$hex};
+	}
+}

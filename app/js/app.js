@@ -242,6 +242,22 @@ var SITE = SITE || {},
         }
     }
 
+    /* FOCUS ELEMENTS
+    ************************************************************************/
+
+    SITE.focusElements = function() {
+
+        $("*").focus(function(){
+            $(".focus-element").removeClass("focus-element");
+            $(this).addClass("focus-element");
+        });
+
+        $(document).on("mousemove mousedown", function() {
+            $(".focus-element").removeClass("focus-element");
+        });
+
+    }
+
     /* INITIALISATION
     ************************************************************************/
 
@@ -255,6 +271,7 @@ var SITE = SITE || {},
         SITE.scrollTransitions();
         SITE.inViewClass();
         SITE.mostVisible();
+        SITE.focusElements();
 
     };
 

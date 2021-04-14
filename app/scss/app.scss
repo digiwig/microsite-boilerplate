@@ -10,6 +10,7 @@
 @import "02-config/_colors.scss";
 @import "02-config/_settings.scss";
 @import "02-config/_media.scss";
+@import "02-config/_variables.scss";
 
 /* 03-BASE
 ************************************************************************/
@@ -44,6 +45,7 @@
 ************************************************************************/
 @import "07-patterns/_headings.scss";
 @import "07-patterns/_paragraphs.scss";
+@import "07-patterns/_states.scss";
 
 /* 08-COMPONENTS
 ************************************************************************/

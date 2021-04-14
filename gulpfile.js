@@ -9,7 +9,13 @@ const gulp = require('gulp'),
       sourcemaps = require('gulp-sourcemaps'),
       uglify = require('gulp-uglify'),
       include = require("gulp-include"),
-      concat = require('gulp-concat');
+      concat = require('gulp-concat'),
+      purgecss = require('gulp-purgecss'),
+      purge_safelist = [
+        'scroll-below-header',
+        'focus-element',
+        'animated',
+      ];
 
 /**
  * SCSS -> CSS compilation
@@ -21,8 +27,19 @@ function css() {
     return gulp
     .src(config.sass.base)
     .pipe(sourcemaps.init())
-    .pipe(sass(config.options.sass).on('error', sass.logError))
+    .pipe(sass(config.options.develop).on('error', sass.logError))
     .pipe(autoprefixer(config.options.autoprefixer))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.sass.output));
+}
+
+function purge() {
+    return gulp
+    .src(config.sass.base)
+    .pipe(sourcemaps.init())
+    .pipe(sass(config.options.production).on('error', sass.logError))
+    .pipe(autoprefixer(config.options.autoprefixer))
+    .pipe(purgecss({ content: ['**/*.php'], safelist: purge_safelist, }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.sass.output));
 }
@@ -63,7 +80,7 @@ function watchFiles() {
 
 // define complex tasks
 const js = gulp.series(scripts);
-const build = gulp.series(css, scripts);
+const build = gulp.series(purge, scripts);
 const watch = gulp.parallel(watchFiles);
 
 //export tasks

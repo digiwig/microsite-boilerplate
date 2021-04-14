@@ -4,10 +4,10 @@
 	</header>
 	<nav>
 		<div class="o-container">
-			<a>Home</a>
-			<a>Men</a>
-			<a>Women</a>
-			<a>Kids</a>
+			<a tabindex="0" href="/home">Home</a>
+			<a tabindex="0" href="/men">Men</a>
+			<a tabindex="0" href="/women">Women</a>
+			<a tabindex="0" href="/kids">Kids</a>
 		</div>
 	</nav>
 	<div class="o-section o-header">

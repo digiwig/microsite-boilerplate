@@ -12,7 +12,11 @@ module.exports = function() {
             output: './dist/js/'
         },
         options: {
-            sass: {
+            develop: {
+                errLogToConsole: true,
+                outputStyle: 'expanded'
+            },
+            production: {
                 errLogToConsole: true,
                 outputStyle: 'compressed'
             },
