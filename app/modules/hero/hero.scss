@@ -1,13 +1,15 @@
 .m-hero {
 
+	/* DUMMY */
+
 	display: flex;
 
-	@media #{$default} {		
-		
+	@media #{$default} {
+
 		/* HEIGHT VARIATIONS
 		****************************************************************************************************/
 		@media #{$ie} {
-			height:1px;	
+			height:1px;
 		}
 		&--min-height {
 			min-height:em(700px);
@@ -19,7 +21,7 @@
 	}
 
 	/* CONTENT EXCEPTIONS
-	****************************************************************************************************/	
+	****************************************************************************************************/
 
 	.o-content {
 		p.large {
@@ -66,7 +68,7 @@
 	&--center-right {
 		align-items:center;
 		justify-content: flex-end;
-	}	
+	}
 
 	&--bottom-left {
 		align-items:flex-end;
@@ -90,9 +92,9 @@
 		position: relative;
 		z-index: 1;
 		@media #{$default} {
-			width:auto;	
-		}		
-	}	
+			width:auto;
+		}
+	}
 
 	@each $name, $width in $widths {
 
@@ -100,7 +102,7 @@
 			.o-content {
 				width:100%;
 				max-width:$width;
-			}			
+			}
 		}
 	}
 
@@ -137,9 +139,9 @@
 			bottom:0;
 			left:0;
 			background: rgba(black, 0.65);
-			display: block;	
+			display: block;
 			z-index:0;
-		}	
+		}
 
 		&--gradient-right {
 			@extend .m-hero--overlay;
@@ -150,7 +152,7 @@
 				}
 				@media #{$respond} {
 					background: rgba(black, 0.65);
-				}				
+				}
 			}
 
 		}
@@ -158,7 +160,7 @@
 		&--gradient-left {
 			@extend .m-hero--overlay;
 			&::after {
-				background: linear-gradient(to right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);			
+				background: linear-gradient(to right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
 			}
 		}
 
