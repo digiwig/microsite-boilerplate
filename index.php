@@ -18,6 +18,7 @@
 				<div class="m-hero m-hero--full-height m-hero--overlay--gradient-right m-hero--bottom-right">
 					<div class="o-content">
 						<h1 class="h2 color-theme display-heading--1">Seize opportunities<br> to add revenue with<br> carrier-grade Wi-Fi</h1>
+						<p><a class="c-button" href="#goto">Go Down</a></p>
 					</div>
 				</div>
 			</div>
@@ -72,7 +73,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="o-section background-medium-grey color-white">
+		<section class="o-section background-medium-grey color-white" id="goto">
 			<div class="o-modules">
 				<div class="o-container o-container--sm o-content text-center">
 					<h2>Small Title</h2>

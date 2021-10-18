@@ -82,7 +82,7 @@ $grids: (
 			width:calc(100% + #{$gutterX});
 			display: flex;
 			flex-wrap: wrap;
-			margin-bottom:-#{$gutterY};
+			margin-bottom:calc(-1 * #{$gutterY});
 
 			& + .o-row {
 				margin-top:$gutterY;
@@ -139,7 +139,7 @@ $grids: (
 				@media #{$respond} {
 
 					width:calc(100% + #{$respondX});
-					margin-bottom:-$respondY;
+					margin-bottom:calc(-1 * #{$respondY});
 
 					& + .o-row {
 						margin-top:$respondY;
